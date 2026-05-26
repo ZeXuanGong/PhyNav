@@ -1,0 +1,120 @@
+\section{静电场\quad 电场强度}
+\subsection{电场}
+电场：电荷周围存在的一种特殊物质。分布在一定范围的空间里，具有能量、动量等属性，并通过交换场量子来实现相互作用的传递。电磁场的媒介子是光子。
+
+电场力：电场对处在其中的其他电荷的作用力。两个电荷之间的相互作用力本质上是一个电荷的电场作用在另一个电荷上的电场力。
+
+静电场：相对于观察者为静止的点电荷在其周围所激发的电场。
+
+\subsection{电场强度}
+\subsubsection{检验电荷}
+\begin{enumerate}
+	\item 所带电荷量充分小。
+	\item 线度小到可以被看作点电荷。
+\end{enumerate}
+用检验电荷所受的力与检验电荷所带电荷量之比，可以定义电场强度。
+
+\subsubsection{电场强度}
+定义：电场中某点的电场强度的大小等于单位电荷在该点所受的力的大小，其方向为正电荷在该点的受力方向。
+$$\vec{E}=\frac{\vec{F}}{q_0}$$
+
+符号：$\vec{E}$
+
+单位：$N/C$，$V/m$
+
+标矢性：矢量
+
+\subsection{电场强度的叠加原理}
+点电荷系在空间任一点所激发电场的总电场强度等于各个点电荷单独存在时在该点各自所激发电场的电场强度的矢量和。（简称场强叠加原理）
+
+利用这一原理可以计算任意带电体所激发电场的电场强度，因为任何带电体都可以看作许多点电荷的集合。
+
+\subsection{电场强度的计算}
+\subsubsection{点电荷}
+对于一个静止的点电荷$q$（场源电荷），距$q$为$r$的$P$点（场点）的电场强度为
+$$\vec{E}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\vec{e_r}$$
+
+式中$\vec{e_r}$是由点电荷$q$指向$P$点的单位矢量。
+
+\subsubsection{点电荷系}
+$$\vec{E}=\vec{E_1}+\vec{E_2}+\dots+\vec{E_n}=\sum_{i=1}^n{\frac{q_i}{4\pi\varepsilon_0 r_i^2}\vec{e_ri}}$$
+
+\subsubsection{连续分布电荷}
+把带电体看成许多极小的连续分布的电荷元$\mathbf{d}q$的集合，每一个电荷元$\mathbf{d}q$都当作点电荷来处理。
+$$\mathbf{d}\vec{E}=\frac{1}{4\pi\varepsilon_0}\frac{\mathbf{d}q}{r^2}\vec{e_r}$$
+$$\vec{E}=\int\mathbf{d}\vec{E}=\frac{1}{4\pi\varepsilon_0}\int\frac{\mathbf{d}q}{r^2}\vec{e_r}$$
+
+\subsubsection{经典模型}
+\begin{itemize}
+	\item 电偶极子
+	
+	电偶极子：两个大小相等符号相反的点电荷$+q$和$-q$，当它们之间的距离$l$比所考虑的场点到它们的距离小得多时，这一电荷系统称为电偶极子。
+	
+	轴线：取从负电荷指向正电荷的矢量$\vec{l}$的方向作为轴线的正方向。
+	
+	电偶极矩（电矩）：$\vec{p}=q\vec{l}$
+	
+	对轴线的延长线上的某点A：$\vec{E_A}=\frac{1}{4\pi\varepsilon_0}\frac{2\vec{p}}{y^3}$
+	
+	对中垂线上的某点A：$\vec{E_A}=-\frac{1}{4\pi\varepsilon_0}\frac{\vec{p}}{x^3}$
+	
+	\item  均匀带电直棒
+	
+	长度为$L$，总电荷量为$q$，电荷线密度$\lambda=q/L$。棒外一点$P$离开直棒的垂直距离为$a$，$P$点和直棒两端的连线与直棒之间的夹角分别是$\theta_1$和$\theta_2$。
+	
+	$P$点的电场强度：$E=\frac{\lambda}{4\pi\varepsilon_0}\sqrt{2-2\cos(\theta_1-\theta_2)}$，与$Ox$轴的夹角$\alpha=\arctan\frac{\cos\theta_1-\cos\theta_2}{\sin\theta_2-\sin\theta_1}$
+	
+	无限长均匀带电直棒（或$a\ll L$时）：$E=\frac{\lambda}{4\pi\varepsilon_0}$（$\theta_1=0$，$\theta_2=\pi$）
+	
+	\item 带电圆环
+	
+	半径为$R$，总电荷量为$q$。
+	
+	轴线上一点$P$处的电场强度：$E=\frac{qx}{4\pi\varepsilon_0(x^2+R^2)^{3/2}}$。若$q$为正电荷，沿$Ox$轴正方向：若$q$为负电荷，沿$Ox$轴负方向。
+	
+	当$x\gg R$时：$E=\frac{q}{4\pi\varepsilon_0 x^2}$
+	
+	\item 带电圆盘
+	
+	半径为$R$，面密度为$\sigma$。
+	
+	轴线上一点$P$处的电场强度：$E=\frac{\sigma}{2\varepsilon_0}(1-\frac{x}{\sqrt{R^2+x^2}})$。若$\sigma>0$，沿$Ox$轴正方向；若$\sigma<0$，沿$Ox$轴负方向。
+	
+	当$R\gg x$时：：$E=\frac{\sigma}{2\varepsilon_0}$
+	
+	当$x\gg R$时：$E=\frac{q}{4\pi\varepsilon_0 x^2}$
+\end{itemize}
+
+\subsection{电场对电荷的作用力}
+$$\vec{F}=q\vec{E}$$
+$q>0$时，$\vec{F}$与$\vec{E}$同向；$q<0$时，$\vec{F}$与$\vec{E}$反向。
+
+\subsection{电场线\quad 电场强度通量}
+\subsubsection{电场线}
+ 电场线上每一点的切线方向都与该点处的电场强度$\vec{E}$的方向一致。任一点电场线的密度与该点的电场强度的大小成正比。
+ 
+ \begin{enumerate}
+ 	\item 电场线起始于正电荷（或来自无穷远处），终止于负电荷（或伸向无穷远处），不会在没有电荷的地方中断（电场强度为零的奇异点除外）。
+ 	\item 电场线不能形成闭合曲线。
+ 	\item 任何两条电场线不会相交。
+ \end{enumerate}
+ 
+ \subsubsection{电场强度通量}
+ 定义：在均匀电场中取一个想象中的平面。引入面积矢量$\vec{S}$，其大小等于平面的面积$S$，其方向为平面正法线的方向。设平面正法线的单位矢量$\vec{e_n}$与$\vec{E}$成$\theta$角。
+ 
+ 如果取电场线的密度等于场强的大小，则通过这一平面的电场线总数等于
+ $$\varPhi_e=E\cos\theta S=\vec{E}\cdot\vec{S}$$
+ 也称作通过该面积的电场强度通量，即$\vec{E}$通量。
+ 
+ \begin{itemize}
+ 	\item 不均匀电场：
+ 	
+ 	把曲面划分为无限多个面积元$\mathbf{d}S$，在每一个无限小的面积元$\mathbf{d}S$上电场强度可以认为是均匀的。
+ 	$$\varPhi_e=\int_{S}\mathbf{d}\varPhi_e=\int_{S}\vec{E}\cdot\mathbf{d}\vec{S}$$
+ 	
+ 	\item 闭合曲面：
+ 	
+ 	对非闭合曲面，面法线的方向可以取曲面的任一侧。对闭合曲面来说，通常规定自内向外的方向为面积元法线的正方向。
+ 	
+ 	所以，在电场线从曲面之内向外穿出时$\vec{E}$通量为正：反之，在电场线从外部穿入曲面时，$\vec{E}$通量为负。
+ \end{itemize}

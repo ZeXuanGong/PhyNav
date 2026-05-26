@@ -1,0 +1,40 @@
+\part{力学}
+\chapter{运动和力}
+\section{抛体运动}
+\subsection{正交分解法研究抛体运动}
+将初速度$v_0$分别沿x轴和y轴分解，得到的速度分量为
+\[
+v_{0x}=v_0\cos\theta_0,v_{0y}=v_0\sin\theta_0
+\]
+物体在水平方向上作匀速直线运动，在竖直方向上作匀变速直线运动，加速度为$\mathbf{g}$。一次积分可得物体在空中任意时刻的速度
+$$
+\bm{v}=(v_0\cos\theta_0)\bm{i}+(v_0\sin\theta_0-gt)\bm{j}
+$$
+再次积分可得物体的运动学方程
+\begin{equation}
+    \bm{r}=(v_0t\cos\theta_0)\bm{i}+\left(v_0t\sin\theta_0-\dfrac{1}{2}gt^2\right)\bm{j}
+    \label{equ:pm}
+\end{equation}
+
+\subsection{斜交分解法研究抛体运动}
+将物体的运动视为初速度方向上的匀速直线运动和竖直方向上的自由落体运动的叠加，可得物体的另一种运动学方程
+$$
+\bm{r}=\bm{v_0}t+\dfrac{1}{2}\bm{g}t^2
+$$
+
+由公式\ref{equ:pm}，将时间t消去，可得抛体运动的轨迹方程
+\begin{equation}
+    y=x\tan\theta_0-\dfrac{1}{2}\dfrac{gx^2}{v_0^2\cos^2\theta_0}
+    \label{equ:pme}
+\end{equation}
+
+令$y=0$，解得
+$$
+x=0 \text{或}x=\dfrac{v_0^2\sin2\theta_0}{g}
+$$
+后者即为抛体的射程
+
+对x求导，令导数等于零，将解得的x代入公式\ref{equ:pme}中，得到抛体的射高
+$$
+y=\dfrac{v_0^2\sin^2\theta_0}{2g}
+$$

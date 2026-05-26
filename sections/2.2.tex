@@ -1,0 +1,99 @@
+
+\section{动量守恒定律}
+\subsection{动量定理}
+\begin{definition}[冲量]
+    我们把作用在物体上的力的时间累积效应称为冲量，常用$I$来表示，对于物体上的合力$F$，根据牛顿第二定律，有：
+
+    \[
+        F = ma = m\dfrac{\mathrm{d}v}{\mathrm{d}t}= \dfrac{\mathrm{d}mv}{\mathrm{d}t} = \dfrac{\mathrm{d}p}{\mathrm{d}t}
+    \]
+
+    分离变量得
+    
+    \[
+       F\mathrm{d}t=\mathrm{d}(mv)
+    \]
+
+    其中$F\mathrm{d}t$被称为力$F$的元冲量，对时间积分得
+
+    \[
+        I=\int_{\boldsymbol{t}_1}^{\boldsymbol{t}_2}F\mathrm{d}t=m\Delta v=m\boldsymbol{v}_2-m\boldsymbol{v}_1=\boldsymbol{p}_2-\boldsymbol{p}_1
+    \]
+
+    其中$\int_{\boldsymbol{t}_1}^{\boldsymbol{t}_2}F\mathrm{d}t$是变力$F$在时间$\boldsymbol{t}_2-\boldsymbol{t}_1$内所有元冲量的矢量合
+    ，上述式子说明质点在运动过程中所受合外力的冲量等于该物体动量的增量，
+    这个结论叫做质点的动量定理。
+
+   
+
+\end{definition}
+\label{def:theorem of momentum}
+\begin{attention}{ }{2.2.1}
+    （1）不管物体在运动过程中动量变化的细节如何，合力冲量的大小和方向总等于物体初末动量的矢量差
+
+    （2）动量定理为矢量方程，应用时可直接矢量作图，也可在平面直角坐标系中写成投影式
+
+    （3）对于作用时间短促而变化极大的力（冲力），可用动量定理求冲力平均值
+
+    （4）动量定理可以用于解决变质量问题
+
+    （5）动量定理对于所有惯性系适用
+
+\end{attention}
+
+
+\subsection{质点系动量定理}
+对于一拥有n个质点的质点系：
+
+根据动量定理，质点系中各个质点的动量定理方程为
+$$\mathrm{d}\boldsymbol{p}_{1}=(\boldsymbol{F}_{1}+\boldsymbol{F}_{12}+\boldsymbol{F}_{13}+\cdots+\boldsymbol{F}_{1n})\mathrm{d}t$$
+
+
+$$\mathrm{d}\boldsymbol{p}_{2}=(\boldsymbol{F}_{2}+\boldsymbol{F}_{21}+\boldsymbol{F}_{23}+\cdots+\boldsymbol{F}_{2n})\mathrm{d}t$$
+$$\vdots$$
+$$\mathrm{d}\boldsymbol{p}_{n}=(\boldsymbol{F}_{1}+\boldsymbol{F}_{n1}+\boldsymbol{F}_{n2}+\cdots+\boldsymbol{F}_{n n-1})\mathrm{d}t$$
+
+
+在上述各式中，$\boldsymbol{F}_1,\boldsymbol{F}_2,\cdotp\cdotp\cdotp,\boldsymbol{F}_n$表示质点系外的物体对各个质点的作用力，即为质点系所受的外力；而 $\boldsymbol{F}_{12},F_{21},\cdots,\boldsymbol{F}_{in},\boldsymbol{F}_{ni},\cdots$表示质点系内各个质点之间的相互作用力，这些力即为质点系的内力.根据牛顿第三定律，内力在质点系内总是成对地出 现 的 , 它 们 之 间 满 足 关 系 式 $\boldsymbol{F}_{12}+ \boldsymbol{F}_{21}= 0, \cdots , \boldsymbol{F}_{in}+ \boldsymbol{F}_{ni}= 0, \cdots .$因 此 , 把 上 述 各 式 相 加
+
+$$\mathrm{d}\boldsymbol{p}_{1}+\mathrm{d}\boldsymbol{p}_{2}+\cdots+\mathrm{d}\boldsymbol{p}_{n}=(\boldsymbol{F}_{1}+\boldsymbol{F}_{2}+\cdots+\boldsymbol{F}_{n})\mathrm{d}t$$
+
+或者写成
+
+$$\sum \mathrm{d}\boldsymbol{p}_i=\sum\boldsymbol{F}_i\mathrm{d}t$$
+
+对时间积分，可以得到以下结论：
+\begin{theorem}[质点系动量定理]
+    \[
+    \sum \int_{\boldsymbol{t}_1}^{\boldsymbol{t}_2}\boldsymbol{F}_i\mathrm{d}t=\sum \boldsymbol{m}_i\boldsymbol{v}_{2i} - \sum \boldsymbol{m}_i\boldsymbol{v}_{1i}
+    \]
+    上述式子表示：在某段时间内，作用在质点上的所有外力在同一时间内的冲量的矢量和等于质点系总动量的增量。
+\end{theorem}
+
+
+\subsection{动量守恒定律}
+
+    对于系统来说，若所受合外力的矢量和为0（$\sum\boldsymbol{F}_i=0$）,有质点系动量定理得
+$$
+(\sum \boldsymbol{m}_i\boldsymbol{v}_{i})\mathrm{d}t=0
+$$
+积分得
+$$
+\sum \boldsymbol{m}_i\boldsymbol{v}_{i}=C(\sum\boldsymbol{F}_i=0)
+$$
+其中C为一常矢量
+
+上述式子说明：如果系统所受到的外力矢量和为零（即$\sum\boldsymbol{F}_i=0$）时，系统的总动量保持不变
+
+\begin{knowledge}{ }{2.2.2}
+
+    （1）运用动量守恒定理前首先要分析系统内各物体所受外力，在1.合外力为零2.较短时间内外力相较于内力可忽略不计等情况下可以使用
+
+    （2）动量守恒定律的数学表达式是一个矢量式，在实际计算中，可使用它按个坐标轴分解的分量式
+
+    有时，系统的外力之和并不为0，但外力在某一方向上的分量之和却为0，此时，尽管系统总动量不守恒，但总动量在该方向上的分量守恒
+
+    （3）所有质点的动量都必须是对同一参考系的
+
+\end{knowledge}
+

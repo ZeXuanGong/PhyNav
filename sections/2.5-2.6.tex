@@ -1,0 +1,162 @@
+
+	\section{ 保守力 成对力的功 势能}
+	
+	\subsection{保守力}
+	
+\begin{definition}[保守力]
+	功的大小只与物体初末位置有关，与路径无关。\
+\end{definition}
+	特性：质点沿任意闭合路径运动一周，做功为零。
+	
+	 
+		\begin{example}
+			重力（场中的力），弹力，万有引力（引力场）。非保守力：摩擦力等。
+		\end{example}
+	
+	\subsection{成对力的功}
+	
+	成对保守力的功只取决于质点相对位移的变化。
+	
+	\subsection{势能}
+	
+	势能存在于不同物体之间，属于系统所具有的能量形式。
+	
+	势能差具有绝对意义，系统势能量值只有相对意义。
+	
+\begin{definition}[势能曲线]
+	保守力沿某坐标轴的分量等于势能对此坐标轴的导数的负值。
+\end{definition}
+	
+	
+\subsubsection{用处：1.由曲线求保守力。}
+	$F_{c}(x)=-\frac{\partial E_{p}}{\partial x}$
+	\subsubsection{2.确定质点运动范围。}
+	{ 带入极端情况，如0等求解。}
+	\subsubsection{3.确定平衡位置，判断平衡稳定性。}
+	
+	\section{质点系的功能原理，机械能守恒定律}
+
+
+	\begin{theorem}[质点系的动能原理]
+		单个质点动能定理推广到多个物体：\\
+		对于一个由二质点组成的系统$m_1,m_2$：\\
+		质点$m_1$受到的外力为$\overrightarrow{ F_1}$，质点$m_2$受到的外力为$\overrightarrow{ F_2}$.\\
+		两质点相互作用力分别为$\overrightarrow{F_{21}}, \overrightarrow{F_{12}}$\\
+		在这些作用力下，质点$1,2$各自的路径为$s_1,s_2$.\\
+		则对质点一运用动能定理有:\\
+		\centering$\int \overrightarrow{F_1} \cdot  {d }\overrightarrow{r_1}+\int \overrightarrow{F_{21}} \cdot  {d }\overrightarrow{r_1}=\Delta E_{k1} $\\
+		同样对于质点 $2$有：\\
+		$\int \overrightarrow{F_2} \cdot  {d }\overrightarrow{r_2}+\int \overrightarrow{F_{12}} \cdot  {d }\overrightarrow{r_2}=\Delta E_{k2} $\\
+		两式相加，即有：\\
+		$\int \overrightarrow{F_1} \cdot  {d }\overrightarrow{r_1}+\int \overrightarrow{F_{21}} \cdot  {d }\overrightarrow{r_1}+\int \overrightarrow{F_2} \cdot  {d }\overrightarrow{r_2}+\int \overrightarrow{F_{12}} \cdot  {d }\overrightarrow{r_2}=\Delta E_k'+\Delta E_k" $\\
+		外力做功用$A_e$表示，内力做功用$A_i$表示：\\
+		则质点系动能定理可以表示为：\\
+		$A_e+A_i=\Delta E_k$\\
+		\textcolor{blue}{\kaishu 即系统的内力和外力做功的总和等于系统动能的增量。}\\
+	\end{theorem}
+	
+	\begin{center}
+		
+	\begin{tikzpicture}[
+		dot/.style={circle,fill,inner sep=1pt},
+		arrow/.style={->,>=latex},
+		% 加载 calc 库
+		remember picture, 
+		every node/.style={remember picture}
+	]
+		% 质点 1
+		\node[dot,label={[label distance=0.2cm]below:$m_1$}] (m1) at (8,1) {};
+	
+		% 质点 2
+		\node[dot,label={[label distance=0.2cm]below:$m_2$}] (m2) at (14,1) {};
+	
+		\draw[dashed] (5,0) rectangle (17,2);
+		% 绘制力 F2（箭头从 m2 的左侧偏移到 m1 的右侧偏移）
+		\draw[arrow] ($(m2) - (0.5,0)$) -- ($(m1) + (4,0)$) node[midway,above] {$\overrightarrow{F_{21}}$};
+		\draw[arrow] ($(m1) + (0.5,0)$) -- ($(m2) - (4,0)$) node[midway,above] {$\overrightarrow{F_{12}}$};
+		\draw[arrow] ($(m1) - (0.5,0)$) -- ($(m1) - (1.5,-0.5)$) node[midway,above] {$\overrightarrow{F_{1}}$};
+		\draw[arrow] ($(m2) + (0.5,0)$) -- ($(m2) + (1.5,-0.5)$) node[midway,above] {$\overrightarrow{F_{2}}$};
+	\end{tikzpicture}
+	
+	\end{center}
+	
+	\begin{theorem}[质点系的功能原理]
+		对于系统的内力来说，具有保守力和非保守力之分。因此，内力做功可以分为保守力做功$A_{ie}$,非保守力做功为$A_{id}$.\\
+		\centering$A_i = A_{ie} + A_{id}$\\
+		保守力做功$A_{ie}$等于系统势能增量的负值表示：\\
+		$A_{ie} = -\Delta E_p$\\
+		则有：\\
+		$A_{e} + A_{id}=\Delta E_k + \Delta E_p = \Delta E$\\
+		\textcolor{blue}{\kaishu 即系统机械能的增量等于外力做功与非保守内力做功的总和。}
+	\end{theorem}
+	
+	
+	\begin{theorem}[机械能守恒定律]
+		\textcolor{blue}{\kaishu 如果一个系统只有保守力做功，其他内力和一切外力都不做功，则系统内个物体的动
+		能和势能可以互相转化，但机械能总值不变。}
+	\end{theorem}
+	
+	
+	\begin{definition}[孤立系统]
+		不受外界作用的系统。
+	\end{definition}
+	
+	
+	\begin{theorem}[能量守恒定律]
+		一个孤立系统经历任何变化，该系统的所有能量的总和是不变的，能量只能从一种形式转化为另一种形式，或从系统
+		内一个物体传给另一个物体。
+	\end{theorem}
+	  
+	\par
+	\begin{exercise}[宇宙速度]
+		讨论三种宇宙速度。\\
+	\begin{center}
+			
+		\begin{tikzpicture}[scale=1.5]
+			% 绘制地球（填充蓝色）
+			\shade[ball color=blue!50] (0,0) circle (0.5cm);
+			
+			% 第一宇宙速度：圆形轨道（红色虚线）
+			\draw[red, dashed] (0,0) circle (1cm);
+			\node[red, above] at (0,1) {$v_1$（圆轨道）};
+			
+			% 第二宇宙速度：抛物线轨道（蓝色，与圆相切于右侧）
+			\draw[blue, thick, domain=0:2.5, samples=100] 
+				plot ({-1 + 0.3*\x^2}, {0.6*\x}) 
+				node[left] {$v_2$（抛物线）};
+			
+			% 椭圆轨道（绿色，与圆相切于右侧）
+			\draw[green!50!black, thick] (0,0) ellipse (1cm and 0.5cm);
+			\node[green!50!black, above right] at (0,-1) {$v_1 < v < v_2$（椭圆）};
+		\end{tikzpicture}
+	\end{center}
+	
+		当航天器到达速度$v_1$（第一宇宙速度）时，它会沿着圆周轨道绕地球飞行。\\
+		发射速度大于$v_1$时，轨道变成椭圆，发射点为近地点。\\
+		发射速度增大到$v_2$（第二宇宙速度）时，轨道成为抛物线，进入太阳系轨道。\\
+		发射速度大于$v_2$时，轨道变成双曲。\\
+		以$v_1$ 环绕地球运动，有万有引力提供向心力：\\
+		\centering $G\frac{mm_E}{r^2}=\frac{mv_1^2}{r}$\\
+		 得：\\
+		$v_1 = \sqrt{\frac{Gm_E}{r} } $\\
+		若地球半径为$R$，重力加速度为$g$，有：\\
+		$\Leftrightarrow v_1 = \sqrt{\frac{gR^2}{r} } $\\
+		当航天器接近地面时，令$r = R$,则有：\\
+		$v_1 = \sqrt{gR} = 7.91\times 10^3 m/ s$\\
+		当速度逐渐加大，椭圆轨道不再闭合成为抛物线，能使物体挣脱地球束缚的速度叫做\textcolor{blue}{逃逸速度}，
+		又称为\textcolor{blue}{第二宇宙速度}。\\
+		由能量关系得：\\
+		$\frac{1}{2}mv_2^2 = G\frac{mm_E}{r} $ \\
+		故得：\\
+		$v_2 = \sqrt{\frac{2Gm_E}{r}} = \sqrt{2gR} = 11.2\times 10^3 m/ s $\\
+		使物体脱离太阳系所需的最小速度叫做\textcolor{blue}{ 第三宇宙速度}\\
+		$r'$表示地球至太阳的距离\\
+		$\frac{1}{2}mv_3'^2 = G\frac{mm_S}{r'} $ \\
+		$v_3' = \sqrt{\frac{2Gm_S}{r'}} = \sqrt{2gR} = 42.2\times 10^3 m/ s $\\
+		$v_3'$为物体相对太阳的速度，而地球相对于太阳的速度为$29.8\times 10^3 m/ s $,则若发射速度与地球公
+		转速度一样，有：\\
+		$v_3" = 42.2\times 10^3 m/ s - 29.8\times 10^3 m/ s = 12.4\times 10^3 m/ s$\\
+		以上讨论，忽略了地球的引力，考虑地球引力，则有：\\
+		$\frac{1}{2}mv_3^2 = \frac{1}{2}mv_2^2 + \frac{1}{2}mv_3"^2$\\
+		$v_3 = \sqrt{v_2^2 + v_3"^2} = 16.7\times 10^3 m/ s$\\
+		\end{exercise}

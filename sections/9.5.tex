@@ -1,0 +1,24 @@
+\chapter{电磁感应}
+\section{磁场的能量}
+\subsection{推导}
+设电路接通后回路中某瞬时的电流为$I$，自感电动势为$-L\mathbf{d}I/\mathbf{d}t$，由回路的欧姆定律得
+$$\varepsilon-L\frac{\mathbf{d}I}{\mathbf{d}t}=IR$$
+$$\int_{0}^{t}\varepsilon I\mathbf{d}t=\int_{0}^{I_0}LI\mathbf{d}I+\int_{0}^{t}R^2I^2\mathbf{d}I$$
+
+在自感与电流无关的情况下，得到
+$$\int_{0}^{t}\varepsilon I\mathbf{d}t=\frac{1}{2}LI_0^2+\int_{0}^{t}R^2I^2\mathbf{d}I$$
+
+说明电源电动势所做的功转化为两部分能量。其中$\int_{0}^{t}R^2I^2\mathbf{d}I$是$t$时间内消耗在电阻$R$上的焦耳热；$\frac{1}{2}LI_0^2$是回路中建立电流的变化过程中电源电动势克服自感电动势所做的功，也就是储存在磁场中的能量。
+\subsection{结论}
+\subsubsection{磁场的能量}
+一个自感为$L$的回路，当其中通有电流$I_0$时，其周围空间磁场的能量为
+$$W_m=\frac{1}{2}LI_0^2$$
+
+\subsubsection{磁场能量密度}
+在一般情况下，磁场能量密度可以表达为
+$$w_e=\frac{1}{2}\vec{B}\cdot\vec{H}$$
+
+若磁场是不均匀的，则：
+$$W_m=\int_{V}w_m\mathbf{d}V=\frac{1}{2}\int_{V}\vec{B}\cdot\vec{H}\mathbf{d}V$$
+
+由$\frac{1}{2}LI_0^2=\frac{1}{2}\int_{V}\vec{B}\cdot\vec{H}\mathbf{d}V$，可求出回路的自感。
