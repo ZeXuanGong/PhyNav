@@ -1,0 +1,272 @@
+\section{加速度矢量}
+\subsection{核心内容}
+\begin{enumerate}
+    \item \textbf{定义}：加速度矢量是速度矢量对时间的导数，即位矢对时间的二阶导数。
+          \[
+              \vec{a} = \lim_{\Delta t \to 0} \frac{\Delta \vec{v}}{\Delta t} = \frac{d\vec{v}}{dt} = \frac{d^2 \vec{r}}{dt^2}.
+          \]
+    \item \textbf{物理意义}：加速度既可改变速度的大小，也可改变速度的方向。
+    \item \textbf{曲线运动特征}：一般情况下，加速度指向轨迹的凹侧（速度矢量方向与加速度矢量方向之间夹着轨迹）。
+    \item \textbf{直角坐标系分解}：
+          \[
+              \vec{v} = \dot{x}\,\vec{i} + \dot{y}\,\vec{j} + \dot{z}\,\vec{k},\quad
+              \vec{a} = \ddot{x}\,\vec{i} + \ddot{y}\,\vec{j} + \ddot{z}\,\vec{k}.
+          \]
+\end{enumerate}
+
+\subsection{常见误区与澄清}
+\begin{itemize}
+    \item \textbf{误区}：混淆“加速度大小”与“速率变化率”。\\
+          \textbf{澄清}：加速度大小 $|\vec{a}|$ 反映的是速度矢量变化的快慢。如在变速圆周运动中，速率变化率仅为切向加速度 $a_\tau = \frac{dv}{dt}$。
+\end{itemize}
+
+\subsection{例题}
+\textbf{题目}：已知质点运动方程为：
+\[
+    x(t) = R(\omega t - \sin\omega t),\quad y(t) = R(1 - \cos\omega t),
+\]
+求 $t = \frac{\pi}{\omega}$ 时的速度与加速度。\\
+
+\textbf{解法}：
+\begin{enumerate}
+    \item 先求导：
+          \[
+              v_x = R\omega(1 - \cos\omega t),\quad v_y = R\omega\sin\omega t;
+          \]
+          \[
+              a_x = R\omega^2\sin\omega t,\quad a_y = R\omega^2\cos\omega t.
+          \]
+    \item 代入 $t = \frac{\pi}{\omega}$：
+          \[
+              v_x = 2R\omega,\ v_y = 0;\quad a_x = 0,\ a_y = -R\omega^2.
+          \]
+\end{enumerate}
+
+\newpage
+
+\section{运动学中的逆问题}
+\subsection{核心内容}
+\begin{enumerate}
+    \item \textbf{正问题}：已知 $\vec{r}(t)$，求 $\vec{v}(t), \vec{a}(t)$（求导）。
+    \item \textbf{逆问题}：已知 $\vec{a}(t)$ 与初始条件，求 $\vec{v}(t), \vec{r}(t)$（积分）：
+          \[
+              \vec{v}(t) = \vec{v}_0 + \int_{t_0}^{t} \vec{a}(t')\,dt',\quad
+              \vec{r}(t) = \vec{r}_0 + \int_{t_0}^{t} \vec{v}(t')\,dt'.
+          \]
+    \item \textbf{加速度为 $a(v)$ 或 $a(x)$ 的情形}：需注意到数学中的链式法则：
+          \[
+              a = \frac{dv}{dt} = \frac{dv}{dx}\cdot\frac{dx}{dt} = v\frac{dv}{dx}.
+          \]
+\end{enumerate}
+
+\subsection{常见误区与澄清}
+\begin{itemize}
+    \item \textbf{误区}：积分时漏掉初始条件。\\
+          \textbf{澄清}：不定积分必含常数，需由 $t=0$ 时的 $\vec{r}_0, \vec{v}_0$ 确定。换言之，必须要代入边界条件。
+    \item \textbf{误区}：对 $a(v), a(x)$问题仍套用匀加速公式。\\
+          \textbf{澄清}：匀加速公式仅适用于 $a = \text{常量}$，否则必须用积分或链式法则。
+\end{itemize}
+
+\subsection{例题}
+\textbf{题目}：质点沿直线运动，加速度 $a = -kv$（$k>0$），初速 $v_0$，求 $v(t)$ 与 $x(t)$。\\
+\textbf{解法}：
+\begin{enumerate}
+    \item 由 $a = \frac{dv}{dt} = -kv$，分离变量积分：
+          \[
+              \int_{v_0}^{v} \frac{dv}{v} = -k\int_0^t dt \quad\Rightarrow\quad v(t) = v_0 e^{-kt}.
+          \]
+    \item 由 $v = \frac{dx}{dt}$，再积分：
+          \[
+              x(t) = \int_0^t v_0 e^{-kt'} dt' = x_0 + \frac{v_0}{k}(1 - e^{-kt}).
+          \]
+          注：由于此处 $v$ 可视为 $x$ 的函数，故也可用 $a = v\frac{dv}{dx}$ 求解，结果一致。读者可自行尝试。
+\end{enumerate}
+
+\newpage
+
+\section{角速度与角加速度}
+\subsection{核心内容}
+\begin{enumerate}
+    \item \textbf{角速度和角加速度描述}：
+          在平面运动或固定轴转动中，角位置可用标量 $\theta$ 描述，角速度和角加速度分别为
+          \[
+              \omega=\frac{d\theta}{dt},\qquad \alpha=\frac{d\omega}{dt}.
+          \]
+          若需要表示方向，可把角速度写成矢量 $\boldsymbol\omega$，其方向由右手螺旋定则确定。角加速度矢量定义为$\boldsymbol\alpha=\frac{d\boldsymbol\omega}{dt}$。
+    \item \textbf{在圆周运动中（注意可以是非匀速圆周运动），线量与角量关系}：
+          \[
+              v = R\omega,\quad a_\tau = R\alpha,\quad a_n = \frac{v^2}{R} = R\omega^2.
+          \]
+    \item \textbf{匀速圆周运动}：速率不变，但速度方向改变，存在向心加速度 $a_n$。
+\end{enumerate}
+
+\subsection{常见误区与澄清}
+\begin{itemize}
+    \item \textbf{误区}：忽略角速度的矢量性。\\
+          \textbf{澄清}：角速度 $\vec{\omega}$ 方向由右手螺旋定则确定（垂直运动平面）。对绕固定点作纯转动的质点，有
+          \[
+              \mathbf v=\boldsymbol\omega\times\mathbf r.
+          \]
+          对一般平面极坐标运动，若 $r$ 也随时间变化，则速度还包含径向分量：
+          \[
+              \mathbf v=\dot r\,\mathbf e_r+\boldsymbol\omega\times\mathbf r.
+          \]
+\end{itemize}
+
+\subsection{曲率半径专题}
+\begin{enumerate}
+    \item \textbf{数学原始定义}：曲率半径 $\rho$ 是曲线紧密接触圆（吻切圆）的半径。数学上，曲率 $K = \frac{1}{\rho} = \left|\frac{d\phi}{ds}\right|$，其中 $\phi$ 为切线倾角，$s$ 为弧长。
+    \item \textbf{数学公式求导与推导}：
+          对于显式方程 $y=y(x)$，切线的倾角 $\phi$ 满足 $\tan\phi = \frac{dy}{dx} = y'$。\\
+          对两边关于弧长 $s$ 求导：
+          \[
+              \sec^2\phi \frac{d\phi}{ds} = \frac{d}{dx}(y') \cdot \frac{dx}{ds} = y'' \frac{dx}{ds}.
+          \]
+          根据微元三角形关系，弧长微元 $ds = \sqrt{dx^2 + dy^2} = \sqrt{1 + (y')^2}dx$，因此 $\frac{dx}{ds} = \frac{1}{\sqrt{1 + (y')^2}}$。\\
+          同时，利用三角恒等式 $\sec^2\phi = 1 + \tan^2\phi = 1 + (y')^2$，代入上式有：
+          \[
+              [1 + (y')^2] \frac{d\phi}{ds} = y'' \frac{1}{\sqrt{1 + (y')^2}} \quad\Rightarrow\quad \frac{d\phi}{ds} = \frac{y''}{[1 + (y')^2]^{3/2}}.
+          \]
+          因为 $\rho = \left|\frac{ds}{d\phi}\right|$，所以显式方程的曲率半径公式为：
+          \[
+              \rho = \frac{\left[1 + \left(\frac{dy}{dx}\right)^2\right]^{3/2}}{\left|\frac{d^2y}{dx^2}\right|}.
+          \]
+          对于参数方程 $x=x(t), y=y(t)$，通过链式法则将其转化，其公式为：
+          \[
+              \rho = \frac{(\dot{x}^2 + \dot{y}^2)^{3/2}}{|\dot{x}\ddot{y} - \dot{y}\ddot{x}|}.
+          \]
+          读者可以尝试自行推导此公式。
+
+    \item \textbf{物理理解与详细推导}：
+          在自然坐标系中，速度矢量表达为 $\vec{v} = v \vec{e}_\tau$。根据加速度定义，对时间 $t$ 求导：
+          \[
+              \vec{a} = \frac{d\vec{v}}{dt} = \frac{dv}{dt}\vec{e}_\tau + v\frac{d\vec{e}_\tau}{dt}.
+          \]
+          下面推导关键项 $\frac{d\vec{e}_\tau}{dt}$。由于 $\vec{e}_\tau$ 为单位矢量，其大小恒为1，改变的只有方向。当质点沿轨迹移动一小段弧长 $ds$ 时，切线方向转过了角度 $d\phi$。由几何关系可知，单位矢量差的模为 $|d\vec{e}_\tau| = 1 \cdot d\phi$，且 $d\vec{e}_\tau$ 的方向在极限下垂直于 $\vec{e}_\tau$，即指向轨迹的凹侧（法向基矢 $\vec{e}_n$ 的方向）。\\
+          因此可以写作 $d\vec{e}_\tau = d\phi \vec{e}_n$。应用链式法则：
+          \[
+              \frac{d\vec{e}_\tau}{dt} = \frac{d\phi}{dt}\vec{e}_n = \frac{d\phi}{ds}\frac{ds}{dt}\vec{e}_n.
+          \]
+          因为 $\frac{ds}{dt} = v$，而根据数学定义曲率半径 $\rho = \frac{ds}{d\phi}$（即 $\frac{d\phi}{ds} = \frac{1}{\rho}$），代入可得：
+          \[
+              \frac{d\vec{e}_\tau}{dt} = \frac{v}{\rho}\vec{e}_n.
+          \]
+          将其带回加速度总表达式：
+          \[
+              \vec{a} = \frac{dv}{dt}\vec{e}_\tau + \frac{v^2}{\rho}\vec{e}_n = a_\tau \vec{e}_\tau + a_n \vec{e}_n.
+          \]
+          由此可见，法向加速度大小为 $a_n = \frac{v^2}{\rho}$，变形即得到曲率半径的物理求法：
+          \[
+              \rho = \frac{v^2}{a_n}.
+          \]
+\end{enumerate}
+
+\subsection{拓展了解}
+\begin{itemize}
+    \item \textbf{哈勃定律}：$v = H_0 d$。它描述了宇宙膨胀的规律，即遥远星系退行速度 $v$ 与它们距地球的距离 $d$ 成正比，$H_0$ 为哈勃常数。从运动学角度看，这意味着宇宙处于一种均匀各向同性的膨胀状态。
+    \item \textbf{摆线、旋轮线}：一个圆沿一条直线无滑动地滚动时，圆周上任意一点所留留下来的运动轨迹。其参数方程常表现为类似 $x = R(\phi - \sin\phi)$ 的形式。在物理学中，它具有极其重要的性质，如“最速降线”以及“等时摆”性质。
+\end{itemize}
+
+\subsection{例题1}
+\textbf{题目}：炮弹以初速 $v_0$、仰角 $\theta$ 发射，不计空气阻力。求轨迹最高点的曲率半径。\\
+
+\textbf{解法1}：
+\begin{enumerate}
+    \item 建系：取 $x$ 水平、$y$ 竖直，则
+          \[
+              v_x = v_0\cos\theta,\quad v_y = v_0\sin\theta - gt。
+          \]
+    \item 最高点：$v_y = 0$，此时 $v = v_x = v_0\cos\theta$。在此处质点仅受重力，重力加速度完全充当法向加速度，即 $a_n = g$，故
+          \[
+              \rho = \frac{v^2}{a_n} = \frac{v_0^2\cos^2\theta}{g}.
+          \]
+\end{enumerate}
+
+\textbf{解法2}：
+\begin{enumerate}
+    \item 消去参数 $t$ 得到炮弹的抛物线轨迹方程：
+          \[
+              y = x\tan\theta - \frac{g}{2v_0^2\cos^2\theta}x^2.
+          \]
+    \item 对 $x$ 求一阶和二阶导数：
+          \[
+              \frac{dy}{dx} = \tan\theta - \frac{g}{v_0^2\cos^2\theta}x,\quad \frac{d^2y}{dx^2} = -\frac{g}{v_0^2\cos^2\theta}.
+          \]
+    \item 在最高点处，$\frac{dy}{dx} = 0$，代入曲率半径公式：
+          \[
+              \rho = \frac{[1 + 0]^{3/2}}{\left|-\frac{g}{v_0^2\cos^2\theta}\right|} = \frac{v_0^2\cos^2\theta}{g}.
+          \]
+\end{enumerate}
+
+\subsection{例题2}
+\textbf{题目}：一质点绕半径为 $R$ 的圆周运动，其角加速度与角位移满足关系 $\alpha = -k\theta$（$k>0$）。若 $\theta=0$ 时角速度为 $\omega_0$，求角速度 $\omega$ 与时间 $t$ 的关系。\\
+
+\textbf{解法}：
+\[
+    \alpha=\frac{d^2\theta}{dt^2}=-k\theta.
+\]
+这是简谐振动方程，因此：
+\[
+    \theta(t)=A\cos(\sqrt{k}t)+B\sin(\sqrt{k}t).
+\]
+由 $\theta(0)=0$ 得 $A=0$；由 $\omega(0)=\dot\theta(0)=\omega_0$ 得 $B=\omega_0/\sqrt{k}$。所以：
+\[
+    \theta(t)=\frac{\omega_0}{\sqrt{k}}\sin(\sqrt{k}t), \quad \omega(t)=\omega_0\cos(\sqrt{k}t).
+\]
+
+\subsection{例题3}
+\textbf{题目}：一质点在一平面内运动，其极坐标运动方程为 $r = r_0 e^{kt}$，$\theta = \omega t$（其中 $r_0, k, \omega$ 均为常数）。求质点的径向加速度和角向加速度。\\
+
+\textbf{解法}：
+\begin{enumerate}
+    \item 对时间求各阶导数：
+          \[
+              \dot{r} = k r_0 e^{kt} = kr,\quad \ddot{r} = k^2 r_0 e^{kt} = k^2 r,
+          \]
+          \[
+              \dot{\theta} = \omega,\quad \ddot{\theta} = 0.
+          \]
+    \item 代入平面极坐标系下的加速度分量公式：
+          径向加速度：
+          \[
+              a_r = \ddot{r} - r\dot{\theta}^2 = k^2 r - r\omega^2 = (k^2 - \omega^2)r_0 e^{kt}.
+          \]
+          横向（角向）加速度：
+          \[
+              a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = r(0) + 2(kr)(\omega) = 2k\omega r_0 e^{kt}.
+          \]
+\end{enumerate}
+
+\subsection{例题4}
+\textbf{题目}：一质点在一个平面内运动，其轨迹方程满足 $y = 2\sqrt{x}$。已知质点在 $x$ 方向的分速度维持常数 $v_x = 2\,\text{m/s}$。求当质点运动到 $x = 1\,\text{m}$ 处时，质点的切向加速度和法向加速度。\\
+
+\textbf{解法}：
+\begin{enumerate}
+    \item 计算速度分量及大小：
+          根据 $y = 2x^{1/2}$ 对时间求导得：
+          \[
+              v_y = \frac{dy}{dt} = \frac{1}{\sqrt{x}}\frac{dx}{dt} = \frac{v_x}{\sqrt{x}} = \frac{2}{\sqrt{x}}.
+          \]
+          在 $x = 1\,\text{m}$ 处， $v_y = 2\,\text{m/s}$。此时总速率为：
+          \[
+              v = \sqrt{v_x^2 + v_y^2} = \sqrt{2^2 + 2^2} = 2\sqrt{2}\,\text{m/s}.
+          \]
+    \item 计算加速度在直角坐标系的分量：
+          因为 $v_x = 2\,\text{m/s}$ 为常数，所以 $a_x = \frac{dv_x}{dt} = 0$。\\
+          对 $v_y = 2x^{-1/2}$ 继续对时间求导：
+          \[
+              a_y = \frac{dv_y}{dt} = 2 \cdot \left(-\frac{1}{2}\right)x^{-3/2}\frac{dx}{dt} = -\frac{v_x}{x^{3/2}} = -\frac{2}{x^{3/2}}.
+          \]
+          在 $x = 1\,\text{m}$ 处， $a_y = -2\,\text{m/s}^2$。
+    \item 转换到自然坐标系（利用投影关系）：
+          速度方向与 $x$ 轴夹角 $\phi$ 满足 $\cos\phi = \frac{v_x}{v} = \frac{2}{2\sqrt{2}} = \frac{\sqrt{2}}{2}$， $\sin\phi = \frac{v_y}{v} = \frac{\sqrt{2}}{2}$。\\
+          切向加速度 $a_\tau$ 是总加速度矢量在速度（切向）方向的投影：
+          \[
+              a_\tau = a_x\cos\phi + a_y\sin\phi = 0 \cdot \frac{\sqrt{2}}{2} + (-2) \cdot \frac{\sqrt{2}}{2} = -\sqrt{2}\,\text{m/s}^2.
+          \]
+          总加速度大小为 $a = \sqrt{a_x^2 + a_y^2} = \sqrt{0 + (-2)^2} = 2\,\text{m/s}^2$。\\
+          利用垂直关系 $a^2 = a_\tau^2 + a_n^2$ 可得法向加速度：
+          \[
+              a_n = \sqrt{a^2 - a_\tau^2} = \sqrt{2^2 - (-\sqrt{2})^2} = \sqrt{4 - 2} = \sqrt{2}\,\text{m/s}^2.
+          \]
+\end{enumerate}
