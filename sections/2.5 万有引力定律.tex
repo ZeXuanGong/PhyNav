@@ -1,6 +1,3 @@
-\documentclass[UTF-8]{ctexart}
-\usepackage{amsmath}
-\begin{document}
 \section{万有引力定律}
 \subsection{万有引力定律的数学形式}
 在高中我们就学过万有引力定律了，如果有两个质点，它们的质量分别是$m_1$和$m_2$，它们之间的距离为$r$，那么它们之间的引力大小为
@@ -18,28 +15,28 @@ F = G \frac{m_1 m_2}{r^2}
 这个式子是一种更常见的形式。
 
 我们接下来将展示矢量形式的好处。
-\subsection{质点组对质点的引力（选读）}
+\subsection{质点组对质点的引力}
 设空间中有 $N$ 个质点，第 $i$ 个质点的质量为 $m_i$，位置矢量为 $\mathbf{r}_i$。另有一质量为 $M$ 的质点位于 $\mathbf{r}$ 处。接下来我们尝试利用前面的定律求这 $N$ 个质点对 $M$ 的万有引力的合力。
 
 先计算单个质点 $m_i$ 对 $M$ 的引力。令 $\mathbf{R}_{i} = \mathbf{r} - \mathbf{r}_i$ 为从 $m_i$ 指向 $M$ 的位矢，则引力大小为 $G \frac{m_i M}{|\mathbf{R}_{i}|^2}$，方向沿 $\hat{\mathbf{R}}_i = \mathbf{R}_i / |\mathbf{R}_i|$。故
 \[
-\mathbf{F}_i = G \frac{m_i M}{|\mathbf{R}_i|^3} \mathbf{R}_i.
+\mathbf{F}_i = -G \frac{m_i M}{|\mathbf{R}_i|^3} \mathbf{R}_i.
 \]
 所有质点对 $M$ 的总引力为各 $\mathbf{F}_i$ 的矢量和：
 \[
-\mathbf{F} = \sum_{i=1}^{N} \mathbf{F}_i = G M \sum_{i=1}^{N} m_i \frac{\mathbf{r} - \mathbf{r}_i}{|\mathbf{r} - \mathbf{r}_i|^3}.
+\mathbf{F} = \sum_{i=1}^{N} \mathbf{F}_i = G M \sum_{i=1}^{N} m_i \frac{\mathbf{r}_i - \mathbf{r}}{|\mathbf{r} - \mathbf{r}_i|^3}.
 \]
 假如我们坚持用标量式，恐怕难以应对如此多的质点。
 
 如果我们想研究一个在空间中质量连续分布的物体，那么就无法使用上面的结果了。但是在微积分里，我们通常可以把一个连续的东西，如计算函数曲线与坐标轴围成的面积，拆成若干可以计算的、离散的微元求和。
 
-我们可以一个连续的物体分割成无数个极小的质量微元 $\mathrm{d}m$，每个微元的尺度趋于零，从而可以视为一个质点，位于 $\mathbf{r}'$ 处。该微元对 $M$ 的引力为
+我们可以把一个连续的物体分割成无数个极小的质量微元 $\mathrm{d}m$，每个微元的尺度趋于零，从而可以视为一个质点，位于 $\mathbf{r}'$ 处。该微元对 $M$ 的引力为
 \[
-\mathrm{d}\mathbf{F} = G M \, \mathrm{d}m \, \frac{\mathbf{r} - \mathbf{r}'}{|\mathbf{r} - \mathbf{r}'|^3}.
+\mathrm{d}\mathbf{F} = -G M \, \mathrm{d}m \, \frac{\mathbf{r} - \mathbf{r}'}{|\mathbf{r} - \mathbf{r}'|^3}.
 \]
 引入质量密度 $\rho(\mathbf{r}')$，则 $\mathrm{d}m = \rho(\mathbf{r}') \, \mathrm{d}V'$，将所有微元的贡献叠加（即积分），便得到整个连续体对 $M$ 的总引力
 \[
-\mathbf{F} = G M \iiint_V \rho(\mathbf{r}') \frac{\mathbf{r} - \mathbf{r}'}{|\mathbf{r} - \mathbf{r}'|^3} \, \mathrm{d}V'.
+\mathbf{F} = -G M \iiint_V \rho(\mathbf{r}') \frac{\mathbf{r} - \mathbf{r}'}{|\mathbf{r} - \mathbf{r}'|^3} \, \mathrm{d}V'.
 \]
 \subsection{万有引力的性质}
 万有引力的方向和大小赋予了其极其独特的性质。
@@ -54,7 +51,7 @@ F = G \frac{m_1 m_2}{r^2}
 \[
 F = G \frac{Mm}{r^2}
 \]
-这个结论可以通过三重积分得到的，也可以利用上面的性质得到。
+这个结论可以通过三重积分得到，也可以利用上面的性质得到。
 \subsection{引力质量与惯性质量}
 一个物体可能具有多种与相互作用有关的性质，比如它的电荷量决定了它受到的库仑相互作用的大小、\textbf{引力质量}决定了它受到引力的大小、\textbf{惯性质量}决定了它的惯性的大小。有趣的是，人们利用实验发现，引力质量等于惯性质量，这说明与库仑力和电荷量不同，引力和引力质量似乎更特殊一些。
 
@@ -99,7 +96,7 @@ m \mathbf a = G \frac{Mm}{R^2} \mathbf e_n
 a_\tau = 0
 \]
 \[
-a_n =G \frac{Mm}{R^2}
+a_n =G \frac{M}{R^2}
 \]
 再利用自然坐标系的结论
 \[
@@ -118,7 +115,7 @@ v = \sqrt{\frac{GM}{R}}
 
 另一种思路比较有趣，我们认为实际上被挖去一部分的球体是密度为 $\rho$ 的完整地球和密度为$-\rho$的小球体组合而成的。求出两者的引力求和即可。
 
-\noindent \textbf{解：}以竖直向上为正方向。对于质量为 $m$ 的质点位于地面 $O$ 点，完整地球对它的引力为  
+\noindent \textbf{解：}以竖直向上为正方向。对于质量为 $m$ 的质点位于地面 A 点，完整地球对它的引力为  
 \[
 F_0 = -mg
 \]  
@@ -143,4 +140,3 @@ F' = -mg'
 g' = - \frac{F'}{m} = g - G \frac{4\pi \rho a^3}{3h^2}.
 \]  
 此即所求重力加速度的表达式。
-\end{document}
