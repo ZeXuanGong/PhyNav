@@ -1,0 +1,62 @@
+\chapter{守恒定律}
+\section{质心运动定理}
+\begin{definition}[质心]
+    质心是与质点系质量分布有关的一个代表点，它的位置在平均意义上代表着质量分布的中心。质心的位置即为位矢关于质量的加权平均。
+
+    \[
+        \boldsymbol{r}_c =\dfrac{\sum m_i\boldsymbol{r}_i }{m}
+    \]
+
+    对于质量连续的物体，表达式变为：
+
+    \[
+        \boldsymbol{r}_c =\dfrac{\int \boldsymbol{r}_i \mathrm{d}m}{m}
+    \]
+    
+\end{definition}
+\label{def:mass-center}
+\begin{attention}{ }{2.1.1}
+    重心和质心是两个不同的概念！
+
+    只有当物体所在区域重力加速度分布均匀时，重心和质心在几何上重合。
+
+\end{attention}
+
+由定义\ref{def:mass-center}，质心的速度为
+\[
+    \boldsymbol{v}_c=\dfrac{\mathrm{d}\boldsymbol{r}_c}{\mathrm{d}t}=\dfrac{\sum m_i\dfrac{\mathrm{d}\boldsymbol{r}_i}{\mathrm{d}t}}{\sum m_i}=\dfrac{\sum m_i\boldsymbol{v}_i}{\sum m_i}
+\]
+同理，质心的加速度为
+\[
+    \boldsymbol{a}_c=\dfrac{\sum m_i\boldsymbol{a}_i}{\sum m_i}
+\]
+
+根据牛顿第二定律，质点系中各个质点的运动方程为
+$$m_{1}\boldsymbol{a}_{1}=m_{1}\:\frac{\mathrm{d}\boldsymbol{v}_{1}}{\mathrm{d}t}=\boldsymbol{F}_{1}+\boldsymbol{F}_{12}+\boldsymbol{F}_{13}+\cdots+\boldsymbol{F}_{1n}$$
+
+
+$$m_{2}\boldsymbol{a}_{2}=m_{2}\frac{dv_{2}}{dt}=\boldsymbol{F}_{2}+\boldsymbol{F}_{21}+\boldsymbol{F}_{23}+\cdots+\boldsymbol{F}_{2n}$$
+$$\vdots$$
+$$m_{n}\boldsymbol{a}_{n}=m_{n}\frac{dv_{n}}{dt}=\boldsymbol{F}_{n}+\boldsymbol{F}_{n1}+\boldsymbol{F}_{n2}+\cdots+\boldsymbol{F}_{n\:n-1}$$
+
+
+在上述各式中，$\boldsymbol{F}_1,\boldsymbol{F}_2,\cdotp\cdotp\cdotp,\boldsymbol{F}_n$表示质点系外的物体对各个质点的作用力，即为质点系所受的外力；而 $\boldsymbol{F}_{12},F_{21},\cdots,\boldsymbol{F}_{in},\boldsymbol{F}_{ni},\cdots$表示质点系内各个质点之间的相互作用力，这些力即为质点系的内力.根据牛顿第三定律，内力在质点系内总是成对地出 现 的 , 它 们 之 间 满 足 关 系 式 $\boldsymbol{F}_{12}+ \boldsymbol{F}_{21}= 0, \cdots , \boldsymbol{F}_{in}+ \boldsymbol{F}_{ni}= 0, \cdots .$因 此 , 把 上 述 各 式 相 加
+
+$$m_{1}\boldsymbol{a}_{1}+m_{2}\boldsymbol{a}_{2}+\cdots+m_{n}\boldsymbol{a}_{n}=\boldsymbol{F}_{1}+\boldsymbol{F}_{2}+\cdots+\boldsymbol{F}_{n}$$
+
+或者写成
+
+$$\sum m_i\boldsymbol{a}_i=\sum\boldsymbol{F}_i$$
+
+由此，可以得到以下结论：
+\begin{theorem}[质心运动定理]
+    \[
+    \sum \boldsymbol{F}_i=m\boldsymbol{a}_c
+    \]
+\end{theorem}
+
+\begin{knowledge}{ }{2.1.2}
+
+    在多体系统中，研究质心的运动规律以及使用质心参考系可以大大简化研究的复杂性，也有二体修正等方法以及结论可帮助研究相应的物理过程，有兴趣的读者可自行探索。
+
+\end{knowledge}
