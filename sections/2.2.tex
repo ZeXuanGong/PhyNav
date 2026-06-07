@@ -1,133 +1,139 @@
-% !TeX root = ../Fundamental-Physics-B.tex
-% 第 2.2 节：牛顿运动定律
+\section{功与功率}
 
-\section{牛顿运动定律}
+功描述力在空间位移上的累积效应。不能把功简单理解成“力的大小乘以路程”，因为只有力在位移方向上的分量参与做功。功率则描述做功的快慢。
 
-牛顿运动定律是经典力学的核心。解动力学问题时，基本流程是：先选定研究对象，再判断参考系，随后画出研究对象所受外力，最后把牛顿第二定律投影到合适的坐标轴上。
+\subsection{恒力做功}
 
-\subsection{牛顿第一定律}
-
-在惯性参考系中，若物体不受外力，或所受合外力为零，则物体保持静止或匀速直线运动状态：
+若物体在恒力 $\boldsymbol F$ 作用下发生位移 $\boldsymbol s$，力与位移夹角为 $\theta$，则该力做功为
 \[
-    \sum \boldsymbol F=\boldsymbol 0
-    \quad \Longrightarrow \quad
-    \boldsymbol v=\text{常矢量}.
+    W=\boldsymbol F\cdot\boldsymbol s=Fs\cos\theta .
 \]
-静止和匀速直线运动本质上都是加速度为零的运动状态。
+因此：
 
-牛顿第一定律的重要意义不只是给出“合外力为零时加速度为零”的结论，更重要的是引入了\textbf{惯性}和\textbf{惯性参考系}。物体保持原有运动状态的性质称为惯性；质量是惯性大小的量度。基础物理中若无特别说明，地面参考系通常可近似看作惯性系。
-
-\begin{attention}{第一定律的作用}{ch2:first-law-note}
-牛顿第一定律不是第二定律的简单特例。它指出了牛顿第二定律能够直接使用的参考系条件，即必须在惯性系中讨论真实力与加速度的关系。
-\end{attention}
-
-\subsection{牛顿第二定律}
-
-牛顿第二定律的一般形式是动量形式：
-\[
-    \sum \boldsymbol F=\frac{\mathrm d\boldsymbol p}{\mathrm dt},
-    \qquad
-    \boldsymbol p=m\boldsymbol v.
-\]
-当研究对象质量不变时，可写成常用形式：
-\[
-    \boxed{\sum \boldsymbol F=m\boldsymbol a}.
-\]
-
-这是一个矢量方程。实际解题时通常需要建立坐标系，并写成分量形式：
-\[
-    \sum F_x=ma_x,\qquad
-    \sum F_y=ma_y,\qquad
-    \sum F_z=ma_z.
-\]
-
-\begin{knowledge}{第二定律的使用要点}{ch2:second-law-points}
 \begin{enumerate}
-    \item $\sum \boldsymbol F$ 是研究对象所受\textbf{外力}的矢量和，不包括所选系统内部的相互作用力。
-    \item $m\boldsymbol a$ 中的 $\boldsymbol a$ 是同一研究对象相对于惯性系的加速度。
-    \item 牛顿第二定律是瞬时关系：某一时刻的合外力决定同一时刻的加速度。
-    \item 坐标轴应尽量沿加速度方向、约束方向或接触面方向选取，使分量方程尽可能简单。
-\end{enumerate}
-\end{knowledge}
-
-\subsection{牛顿第三定律}
-
-两个物体之间的作用力与反作用力满足
-\[
-    \boldsymbol F_{12}=-\boldsymbol F_{21}.
-\]
-它们大小相等、方向相反、作用在同一直线上，但作用在\textbf{两个不同物体}上。因此，作用力和反作用力不能画在同一个物体的受力图中，也不能在同一个物体的动力学方程中相互抵消。
-
-在多物体系统中，若把几个物体看成整体，系统内力在整体方程中成对抵消；若要求物体之间的接触力、拉力或截面力，则必须隔离其中一部分单独列方程。
-
-\subsection{受力分析的基本步骤}
-
-受力分析应按固定顺序进行：
-\begin{enumerate}
-    \item 选定研究对象，可以是单个物体，也可以是由多个物体组成的系统；
-    \item 判断参考系，基础题通常取地面为惯性系；
-    \item 隔离研究对象，只画其他物体对它的外力；
-    \item 按重力、接触弹力、绳的张力、摩擦力等顺序逐一检查；
-    \item 建立坐标系，并尽量使坐标轴沿接触面、绳方向或加速度方向；
-    \item 将各力投影到坐标轴，列出 $\sum F_x=ma_x$、$\sum F_y=ma_y$；
-    \item 联立运动约束条件，例如共同运动时加速度相同、绳长不变时位移满足约束；
-    \item 检查结果的量纲、方向和极限情形。
+    \item 当 $0\leq \theta<90^\circ$ 时，$W>0$，力做正功；
+    \item 当 $\theta=90^\circ$ 时，$W=0$，力不做功；
+    \item 当 $90^\circ<\theta\leq 180^\circ$ 时，$W<0$，力做负功。
 \end{enumerate}
 
-受力图中只画力，不画速度、位移。加速度可以在图旁标出作为列方程的辅助信息，但它本身不是力。
+功是标量。功的正负表示能量转移方向，不表示空间方向。
 
-\subsection{例题 2.1：均质杆截面两侧的相互作用力}
+\subsection{变力做功}
 
-\begin{figure}[htbp]
-    \centering
-    \IfFileExists{images/ex-2-1-original.png}{%
-        \includegraphics[width=0.70\textwidth]{images/ex-2-1-original.png}
-    }{%
-        \fbox{\parbox{0.70\textwidth}{\centering 原题图 2.1 预留位置：请将裁切后的图片命名为 \texttt{ex-2-1-original.png} 并放入 \texttt{images/} 目录。}}
+若力随位置变化，或物体沿曲线运动，则应把路径分成许多微小位移元 $\mathrm d\boldsymbol r$。在每一小段上，元功为
+\[
+    \mathrm dW=\boldsymbol F\cdot\mathrm d\boldsymbol r .
+\]
+从起点 $a$ 到终点 $b$ 的总功为
+\[
+    \boxed{
+    W=\int_a^b\boldsymbol F\cdot\mathrm d\boldsymbol r
+    } .
+\]
+在直角坐标系中可写为
+\[
+    W=\int_a^b
+    \left(
+    F_x\,\mathrm dx+F_y\,\mathrm dy+F_z\,\mathrm dz
+    \right).
+\]
+计算变力做功时，应沿实际路径积分，不能随意取始末力的平均值乘总位移。
+
+\subsection{合力做功}
+
+若物体受到多个力
+\[
+    \boldsymbol F_1,\boldsymbol F_2,\cdots,\boldsymbol F_n,
+\]
+则合力为
+\[
+    \boldsymbol F_{\mathrm{net}}=\sum_{i=1}^{n}\boldsymbol F_i .
+\]
+合力做功为
+\[
+    W_{\mathrm{net}}
+    =
+    \int \boldsymbol F_{\mathrm{net}}\cdot\mathrm d\boldsymbol r
+    =
+    \sum_{i=1}^{n}
+    \int \boldsymbol F_i\cdot\mathrm d\boldsymbol r
+    =
+    \sum_{i=1}^{n}W_i .
+\]
+所以，合力做功等于各分力做功的代数和。
+
+\subsection{功率}
+
+平均功率定义为
+\[
+    \bar P=\frac{\Delta W}{\Delta t}.
+\]
+瞬时功率为
+\[
+    P=\frac{\mathrm dW}{\mathrm dt}.
+\]
+由 $\mathrm dW=\boldsymbol F\cdot\mathrm d\boldsymbol r$ 得
+\[
+    \boxed{
+    P=\boldsymbol F\cdot\boldsymbol v
+    } .
+\]
+若力与速度夹角为 $\theta$，则
+\[
+    P=Fv\cos\theta .
+\]
+功率单位为瓦特：
+\[
+    1\,\mathrm W=1\,\mathrm{J/s}.
+\]
+
+\subsection{功的相对性}
+
+功与参考系有关。因为位移 $\mathrm d\boldsymbol r$ 和速度 $\boldsymbol v$ 都依赖参考系，所以同一个力在不同惯性系中做功和功率一般不同。与此同时，动能也依赖参考系；只要在同一参考系内计算，功与动能之间仍满足动能定理。
+
+\subsection{例题：变力沿直线做功}
+
+质点沿 $x$ 轴从 $x=0$ 运动到 $x=a$。作用在质点上的力为
+\[
+    F_x=kx,\qquad F_y=F_z=0,
+\]
+其中 $k$ 为常量。求该力做的功。
+
+\textbf{解析：} 因为质点沿 $x$ 轴运动，
+\[
+    \mathrm d\boldsymbol r=\mathrm dx\,\boldsymbol e_x.
+\]
+元功为
+\[
+    \mathrm dW=\boldsymbol F\cdot\mathrm d\boldsymbol r=kx\,\mathrm dx.
+\]
+故
+\[
+    W=\int_0^a kx\,\mathrm dx=\frac{1}{2}ka^2.
+\]
+因此
+\[
+    \boxed{W=\frac{1}{2}ka^2}.
+\]
+本题体现了变力做功必须积分，不能简单套用恒力做功公式。
+
+\subsection{常用公式}
+
+\[
+    W=\boldsymbol F\cdot\boldsymbol s=Fs\cos\theta
+\]
+\[
+    \boxed{
+    W=\int_a^b\boldsymbol F\cdot\mathrm d\boldsymbol r
+    =
+    \int_a^b
+    \left(
+    F_x\,\mathrm dx+F_y\,\mathrm dy+F_z\,\mathrm dz
+    \right)
     }
-    \caption{习题 2.1 原题图}
-\end{figure}
-
-设杆长为 $L$、质量为 $M$，取从 $A$ 指向 $B$ 为正方向。图中 $f_1$ 向右、$f_2$ 向左。杆整体在光滑水平面上运动，因此
-\[
-    f_1-f_2=Ma,
-    \qquad
-    a=\frac{f_1-f_2}{M}.
 \]
-
-截面 $C$ 满足 $AC=\dfrac{1}{n}AB$，故左段 $AC$ 的质量为
 \[
-    M_C=\frac{M}{n}.
+    \boxed{
+    P=\frac{\mathrm dW}{\mathrm dt}=\boldsymbol F\cdot\boldsymbol v
+    }
 \]
-对左段 $AC$ 隔离分析。设右段对左段在截面 $C$ 处的作用力为 $F_C$，正方向取向右，则
-\[
-    f_1+F_C=\frac{M}{n}a
-    =\frac{f_1-f_2}{n}.
-\]
-所以
-\[
-    F_C=\frac{f_1-f_2}{n}-f_1
-    =-\frac{(n-1)f_1+f_2}{n}.
-\]
-负号说明右段对左段的作用力实际向左，其大小为
-\[
-    \boxed{\left|F_C\right|=\frac{(n-1)f_1+f_2}{n}}.
-\]
-由牛顿第三定律，左段对右段的作用力大小相同、方向相反，即向右。
-
-\begin{center}
-\begin{tikzpicture}[scale=1.0,>=stealth]
-    \draw[thick] (0,0) rectangle (6,0.6);
-    \draw[dashed,thick] (2,0) -- (2,0.6);
-    \node[above] at (0,0.6) {$A$};
-    \node[above] at (2,0.6) {$C$};
-    \node[above] at (6,0.6) {$B$};
-    \draw[->,thick] (-0.9,0.3) -- (0,0.3) node[midway,above] {$f_1$};
-    \draw[->,thick] (6.9,0.3) -- (6,0.3) node[midway,above] {$f_2$};
-    \draw[->,thick,red] (2,0.3) -- (1.2,0.3) node[midway,above] {$F_C$};
-    \draw[->,thick,blue] (2,-0.25) -- (2.8,-0.25) node[midway,below] {$-F_C$};
-    \draw[thick] (-1,-0.05) -- (7,-0.05);
-\end{tikzpicture}
-\end{center}
-
-本题的关键是“切开后隔离”。截面两侧相互作用力是一对作用力与反作用力，不能在同一隔离体方程中相互抵消。
