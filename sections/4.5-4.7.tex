@@ -1,0 +1,463 @@
+\documentclass[a4paper,12pt]{ctexart}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+% 页面设置
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\linespread{1.25}
+
+% 全局首行缩进
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.3em}
+
+% 列表设置
+\setlist{
+    leftmargin=2em,
+    itemindent=0em,
+    labelindent=0em,
+    topsep=0.3em,
+    itemsep=0.1em
+}
+
+% 矢量
+\newcommand{\vct}[1]{\boldsymbol{#1}}
+\newcommand{\uve}[1]{\boldsymbol{\hat{#1}}}
+
+% ========== 编号设置 ==========
+\setcounter{section}{3}
+\setcounter{subsection}{4}
+\renewcommand{\thesubsection}{4.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+\title{格物助航计划\\质点运动学基础知识点提纲}
+\author{北航工科物理资料整理组}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\vspace{1em}
+
+\tableofcontents
+\newpage
+
+\section{第四章}
+\subsection{功能原理与机械能守恒定律}
+\subsubsection{功能原理的一般形式}
+系统的总机械能定义为系统内所有物体的动能与势能之和，即：
+\[
+E = E_k + E_p
+\]
+其中，\(E_k\) 为系统的总动能，\(E_p\) 为系统的总势能。
+
+功能原理指出：外力与非保守内力对系统所做的功之和，等于系统机械能的增量：
+\[
+W_{\text{外}} + W_{\text{非保内}} = \Delta E = E_2 - E_1
+\]
+当 \(W_{\text{外}}=0\) 且 \(W_{\text{非保内}}=0\) 时，系统机械能守恒，即 \(E=\text{常数}\)。
+
+\subsubsection{常见势能形式及其推导}
+势能的本质是保守力场中，由物体间相对位置决定的能量。保守力做功与路径无关，仅与初末位置有关，且满足：
+\[
+W_{\text{保}} = -\Delta E_p = E_{p1} - E_{p2}
+\]
+
+\paragraph{1. 重力势能}
+取竖直向上为 \(y\) 轴正方向，重力为 \(\vct{G}=-mg\uve{y}\)。设 \(y=0\) 处为势能零点，物体从位置 \(y\) 运动到 \(0\) 时，重力做功：
+\[
+W_G = \int_{y}^{0} \vct{G} \cdot d\vct{r} = \int_{y}^{0} (-mg) dy = mgy
+\]
+由 \(W_G = E_p(y) - E_p(0)\)，得重力势能表达式：
+\[
+E_{pG} = mgy
+\]
+通常取地面或参考点为 \(y=0\)，此时 \(E_{pG}=mgh\)，\(h\) 为物体相对参考面的高度。
+
+\paragraph{2. 引力势能}
+两质点质量分别为 \(M\) 和 \(m\)，相距为 \(r\)，万有引力为：
+\[
+\vct{F} = -G\frac{Mm}{r^2}\uve{r}
+\]
+取无穷远处为势能零点，质点从 \(r\) 运动到 \(\infty\) 时，引力做功：
+\[
+W_F = \int_{r}^{\infty} \vct{F} \cdot d\vct{r} = \int_{r}^{\infty} -G\frac{Mm}{r^2} dr = -G\frac{Mm}{r}
+\]
+由 \(W_F = E_p(r) - E_p(\infty)\)，且 \(E_p(\infty)=0\)，得引力势能：
+\[
+E_{pGrav} = -G\frac{Mm}{r}
+\]
+
+\paragraph{3. 弹性势能}
+轻弹簧的劲度系数为 \(k\)，一端固定，另一端位移为 \(x\)（以原长为 \(x=0\)），弹性力为：
+\[
+\vct{F} = -kx\uve{x}
+\]
+质点从 \(x\) 运动到 \(0\) 时，弹性力做功：
+\[
+W_s = \int_{x}^{0} \vct{F} \cdot d\vct{r} = \int_{x}^{0} (-kx) dx = \frac{1}{2}kx^2
+\]
+由 \(W_s = E_p(x) - E_p(0)\)，且 \(E_p(0)=0\)，得弹性势能：
+\[
+E_{pEl} = \frac{1}{2}kx^2
+\]
+
+\paragraph{4. 电势能（点电荷）}
+点电荷 \(Q\) 产生的电场中，另一电荷 \(q\) 受到的库仑力为：
+\[
+\vct{F} = k_e\frac{Qq}{r^2}\uve{r}
+\]
+取无穷远处为势能零点，电荷 \(q\) 从 \(r\) 运动到 \(\infty\) 时，库仑力做功：
+\[
+W_e = \int_{r}^{\infty} \vct{F} \cdot d\vct{r} = \int_{r}^{\infty} k_e\frac{Qq}{r^2} dr = k_e\frac{Qq}{r}
+\]
+由 \(W_e = E_p(r) - E_p(\infty)\)，得电势能：
+\[
+E_{pElec} = k_e\frac{Qq}{r}
+\]
+
+\subsubsection{刚体的动能}
+刚体的动能可分解为质心的平动动能与绕质心的转动动能之和：
+\[
+E_k = E_{k,\text{平动}} + E_{k,\text{转动}}
+\]
+平动动能：与质点动能形式一致，\(E_{k,\text{平动}} = \frac{1}{2}Mv_C^2\)，其中 \(M\) 为刚体总质量，\(v_C\) 为质心速度。
+转动动能：刚体绕质心转动时，动能为各质元动能之和，可推导得：
+\[
+E_{k,\text{转动}} = \frac{1}{2}I_C\omega^2
+\]
+其中 \(I_C\) 为刚体对质心轴的转动惯量，\(\omega\) 为角速度。
+
+因此，刚体的总动能为：
+\[
+E_k = \frac{1}{2}Mv_C^2 + \frac{1}{2}I_C\omega^2
+\]
+
+\subsubsection{重力场中机械能守恒定律的证明}
+考虑一个仅受重力作用的物体（质点或刚体），忽略空气阻力，重力为保守力。
+
+1.  \textbf{质点情形}
+    质点质量为 \(m\)，初速度为 \(\vct{v}_1\)，位置为 \(y_1\)；末速度为 \(\vct{v}_2\)，位置为 \(y_2\)。
+    重力做功：
+    \[
+    W_G = \int_{y_1}^{y_2} (-mg) dy = mg(y_1 - y_2)
+    \]
+    由动能定理，合外力做功等于动能增量：
+    \[
+    W_G = \Delta E_k = \frac{1}{2}mv_2^2 - \frac{1}{2}mv_1^2
+    \]
+    联立两式：
+    \[
+    mg(y_1 - y_2) = \frac{1}{2}mv_2^2 - \frac{1}{2}mv_1^2
+    \]
+    整理得：
+    \[
+    \frac{1}{2}mv_1^2 + mgy_1 = \frac{1}{2}mv_2^2 + mgy_2
+    \]
+    即 \(E_{k1} + E_{p1} = E_{k2} + E_{p2}\)，质点机械能守恒。
+
+2.  \textbf{刚体情形（平动+转动）}
+    刚体受重力作用，质心初速度为 \(v_{C1}\)，位置为 \(y_{C1}\)，角速度为 \(\omega_1\)；末态对应量为 \(v_{C2}, y_{C2}, \omega_2\)。
+    重力做功仅与质心位置有关：
+    \[
+    W_G = mg(y_{C1} - y_{C2})
+    \]
+    由动能定理（包含转动动能）：
+    \[
+    W_G = \Delta E_k = \left(\frac{1}{2}Mv_{C2}^2 + \frac{1}{2}I_C\omega_2^2\right) - \left(\frac{1}{2}Mv_{C1}^2 + \frac{1}{2}I_C\omega_1^2\right)
+    \]
+    联立并整理：
+    \[
+    \frac{1}{2}Mv_{C1}^2 + \frac{1}{2}I_C\omega_1^2 + Mgy_{C1} = \frac{1}{2}Mv_{C2}^2 + \frac{1}{2}I_C\omega_2^2 + Mgy_{C2}
+    \]
+    即刚体的平动动能、转动动能与重力势能之和保持不变，机械能守恒。
+
+\subsubsection{常见误区}
+\begin{itemize}
+    \item 错误地把机械能守恒条件简写为“不受外力”，无视了系统内部非保守内力（如两滑块间的非弹性碰撞、粘性阻尼）对机械能的剧烈消耗。
+    \item 机械能守恒定律是针对整个关联系统而言的，在列式时，常犯“拆东墙补西墙”的错误，错把单个受约束物体的动能误当成全部机械能。
+    \item 势能零点选择混乱，尤其是引力势能和电势能，未按无穷远为零点进行计算，导致符号错误。
+    \item 刚体问题中，容易遗漏转动动能部分，直接套用质点机械能守恒公式。
+\end{itemize}
+
+\subsection{三种宇宙速度}
+三种宇宙速度是从地球表面发射航天器的三个临界发射速度，分别对应环绕地球、脱离地球引力、脱离太阳系三个层级的航天任务，是万有引力与机械能守恒定律的典型应用。
+
+\subsubsection{第一宇宙速度（环绕速度）}
+\textbf{物理定义\\}
+第一宇宙速度是物体在地面附近绕地球做匀速圆周运动的最小发射速度，同时也是近地轨道航天器的最大环绕速度，数值为 \(v_1 \approx 7.9\ \mathrm{km/s}\)。
+
+\textbf{公式推导\\}
+近地轨道中，轨道半径近似等于地球半径 \(R\)，航天器所受万有引力完全提供圆周运动向心力：
+\[
+G \frac{M m}{R^2} = m \frac{v_1^2}{R}
+\]
+约去航天器质量 \(m\)，整理得第一宇宙速度通用公式：
+\[
+v_1 = \sqrt{\frac{GM}{R}}
+\]
+结合地面重力近似 \(g=\dfrac{GM}{R^2}\)，亦可写为等价形式：
+\[
+v_1 = \sqrt{gR}
+\]
+代入地球标准参数即可得到 \(7.9\ \mathrm{km/s}\)。
+
+\textbf{工程应用}
+\begin{itemize}
+    \item 近地轨道卫星、载人飞船、空间站的基础入轨速度；
+    \item 气象卫星、遥感卫星、低轨通信卫星的轨道速度设计依据。
+\end{itemize}
+
+\textbf{常见误区}
+\begin{itemize}
+    \item 误以为第一宇宙速度是航天器最小运行速度：实际轨道半径 \(r\) 越大，环绕速度 \(v=\sqrt{\dfrac{GM}{r}}\) 越小，高轨卫星运行速度远小于7.9 km/s，该速度仅为近地轨道最大环绕速度。
+    \item 混淆发射速度与环绕速度：7.9 km/s是最小发射速度，低于该速度物体无法维持圆周运动，会坠落地面。
+\end{itemize}
+
+\subsubsection{第二宇宙速度（地球逃逸速度）}
+\textbf{物理定义\\}
+第二宇宙速度是物体完全摆脱地球引力束缚、不再返回地球，成为太阳系人造行星的最小地面发射速度，数值为 \(v_2 \approx 11.2\ \mathrm{km/s}\)。
+
+\textbf{公式推导\\}
+逃逸临界条件：物体到达无穷远引力零点时，动能恰好耗尽（总机械能为0）。
+以无穷远为引力势能零点，由机械能守恒定律：
+\[
+E_{\text{初}} = E_{\text{末}} = 0
+\]
+地面处机械能为动能与引力势能之和：
+\[
+\frac{1}{2} m v_2^2 - G \frac{M m}{R} = 0
+\]
+整理得：
+\[
+v_2 = \sqrt{\frac{2GM}{R}} = \sqrt{2}\,v_1 \approx 11.2\ \mathrm{km/s}
+\]
+
+\textbf{工程应用}
+\begin{itemize}
+    \item 月球探测、火星探测等地外深空探测任务发射标准；
+    \item 所有脱离地球轨道、进入星际空间的航天器速度基准。
+\end{itemize}
+
+\textbf{常见误区}
+\begin{itemize}
+    \item 误用恒力做功公式计算引力功：万有引力是随距离变化的变力，做功必须通过曲线积分 \(\displaystyle W=\int_{R}^{\infty}\frac{GMm}{r^2}\mathrm{d}r\) 求解，不能用恒力做功公式。
+    \item 误以为达到第二宇宙速度即不受任何引力：仅脱离地球引力，仍受太阳引力束缚，无法飞出太阳系。
+\end{itemize}
+
+\subsubsection{第三宇宙速度（太阳系逃逸速度）}
+\textbf{物理定义\\}
+第三宇宙速度是物体从地面发射，彻底摆脱太阳引力束缚、飞出太阳系的最小发射速度，数值为 \(v_3 \approx 16.7\ \mathrm{km/s}\)。
+
+\textbf{推导思路与过程\\}
+该速度需叠加地球公转速度助推效应，分两步推导：
+
+1. 太阳引力逃逸速度
+地球公转轨道处，脱离太阳引力所需速度：
+\[
+v_{\odot} = \sqrt{\frac{2GM_{\odot}}{r_{\text{地日}}}} \approx 42.1\ \mathrm{km/s}
+\]
+
+2. 利用地球公转速度补偿
+地球公转速度 \(v_{\text{地}} \approx 29.8\ \mathrm{km/s}\)，沿公转方向发射可叠加初速度，相对地球只需额外速度：
+\[
+\Delta v = 42.1 - 29.8 = 12.3\ \mathrm{km/s}
+\]
+
+3. 结合地球引力势能修正
+由地面机械能守恒：
+\[
+\frac{1}{2}mv_3^2 - \frac{GMm}{R} = \frac{1}{2}m(\Delta v)^2
+\]
+代入数据解得：
+\[
+v_3 \approx 16.7\ \mathrm{km/s}
+\]
+
+\textbf{工程应用}
+\begin{itemize}
+    \item 旅行者系列、先驱者系列等星际探测器的发射速度标准；
+    \item 太阳系外深空探测、星际航行任务的速度阈值。
+\end{itemize}
+
+\textbf{常见误区}
+\begin{itemize}
+    \item 忽略地球公转的速度增益：若逆公转方向发射，所需发射速度会远大于16.7 km/s，该数值是最优发射条件下的最小值。
+    \item 误以为飞出太阳系即无引力：仅脱离太阳引力场，仍受银河系引力束缚。
+\end{itemize}
+
+\subsection{两体碰撞}
+碰撞问题以动量守恒为核心规律，结合能量关系区分碰撞类型。分析时常选用实验室参考系与质心参考系，其中质心系可大幅简化运算，是处理碰撞问题的优选参考系。
+
+\subsubsection{完全弹性碰撞}
+设两质点质量分别为 \(m_1\)、\(m_2\)，在同一直线上发生一维正碰。取实验室坐标系，碰撞前两物体速度为 \(v_1\)、\(v_2\)，碰撞后速度为 \(v_1'\)、\(v_2'\)。
+
+完全弹性碰撞满足动量守恒与机械能（动能）守恒：
+\[
+\begin{cases}
+m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2' \\[4pt]
+\dfrac{1}{2}m_1 v_1^2 + \dfrac{1}{2}m_2 v_2^2 = \dfrac{1}{2}m_1 {v_1'}^2 + \dfrac{1}{2}m_2 {v_2'}^2
+\end{cases}
+\]
+
+将动量方程变形：
+\[
+m_1(v_1 - v_1') = m_2(v_2' - v_2)
+\]
+动能方程整理为：
+\[
+m_1(v_1^2 - {v_1'}^2) = m_2({v_2'}^2 - v_2^2)
+\]
+利用平方差公式展开：
+\[
+m_1(v_1 - v_1')(v_1 + v_1') = m_2(v_2' - v_2)(v_2' + v_2)
+\]
+联立两式约去公因子，得到弹性碰撞推论：
+\[
+v_1 + v_1' = v_2 + v_2' \quad \Longrightarrow \quad v_1 - v_2 = v_2' - v_1'
+\]
+即碰撞前后两物体相对速度大小不变、方向相反。
+
+联立方程组求解末速度：
+\[
+v_1' = \frac{m_1 - m_2}{m_1 + m_2}v_1 + \frac{2m_2}{m_1 + m_2}v_2,\quad
+v_2' = \frac{2m_1}{m_1 + m_2}v_1 + \frac{m_2 - m_1}{m_1 + m_2}v_2
+\]
+
+引入\textbf{折合质量（约化质量）} $\mu$，定义为：
+\[
+\mu = \frac{m_1 m_2}{m_1 + m_2}
+\]
+利用折合质量可对两体相对运动解耦，将两体问题等效为单体运动。
+
+\subsubsection{非完全弹性碰撞}
+此类碰撞仅满足动量守恒，动能存在损失，损失量介于完全弹性碰撞与完全非弹性碰撞之间。
+引入\textbf{恢复系数} $e$ 描述碰撞特性，定义为分离速度与接近速度的比值：
+\[
+e = \frac{|v_2' - v_1'|}{|v_1 - v_2|},\quad 0<e<1
+\]
+
+结合一维正碰动量守恒方程：
+\[
+m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'
+\]
+联立恢复系数公式，可解出碰撞后两物体速度：
+\[
+\begin{cases}
+v_1' = \dfrac{m_1 - e m_2}{m_1 + m_2}v_1 + \dfrac{m_2(1+e)}{m_1 + m_2}v_2 \\[4pt]
+v_2' = \dfrac{m_1(1+e)}{m_1 + m_2}v_1 + \dfrac{m_2 - e m_1}{m_1 + m_2}v_2
+\end{cases}
+\]
+系统动能损失为：
+\[
+\Delta E_\mathrm{k} = \frac{1}{2}(1-e^2)\mu (v_1 - v_2)^2
+\]
+
+\subsubsection{完全非弹性碰撞}
+完全非弹性碰撞是动能损失最大的碰撞形式，碰撞后两物体粘连在一起，拥有共同速度，即 \(v_1' = v_2' = v'\)。
+
+由动量守恒定律：
+\[
+m_1 v_1 + m_2 v_2 = (m_1 + m_2) v'
+\]
+解得共同速度：
+\[
+v' = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}
+\]
+
+代入动能公式，计算系统动能损失：
+\[
+\Delta E_\mathrm{k} = \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2^2 - \frac{1}{2}(m_1+m_2){v'}^2
+\]
+化简得：
+\[
+\Delta E_\mathrm{k} = \frac{1}{2}\mu (v_1 - v_2)^2
+\]
+对比非完全弹性碰撞动能损失公式，此时 \(e=0\)，动能损失达到极值。
+
+\subsubsection{柯尼希定理与资用能}
+\paragraph{1. 柯尼希定理推导}
+两体系统的总动能可分解为质心平动动能与系统相对质心的动能之和，该结论即为柯尼希定理。
+
+设系统总质量 \(M = m_1 + m_2\)，质心速度为：
+\[
+v_C = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}
+\]
+令两物体相对质心的速度为 \(u_1, u_2\)，则绝对速度满足 \(v_1 = v_C + u_1,\ v_2 = v_C + u_2\)。
+
+系统总动能：
+\[
+E_\mathrm{k} = \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2^2
+\]
+代入速度关系并展开：
+\[
+E_\mathrm{k} = \frac{1}{2}(m_1+m_2)v_C^2 + \left( \frac{1}{2}m_1 u_1^2 + \frac{1}{2}m_2 u_2^2 \right)
+\]
+式中第一项为\textbf{质心平动动能}，第二项为\textbf{相对质心的动能}，柯尼希定理得证。
+
+\paragraph{2. 资用能}
+碰撞过程中，\textbf{质心平动动能}在无外力作用时保持不变，无法参与动能转化；只有相对质心的动能可用于碰撞形变、能量损耗，这部分能量称为\textbf{资用能}。
+一维正碰下资用能表达式：
+\[
+E_\mathrm{av} = \frac{1}{2}\mu (v_1 - v_2)^2
+\]
+
+\paragraph{3. 质心系的优越性}
+在质心参考系中，系统总动量恒为零，碰撞前后两物体速度始终反向。
+\begin{itemize}
+    \item 弹性碰撞：质心系中两物体仅交换相对速度，计算形式极简；
+    \item 非弹性碰撞：最大动能损失等于全部资用能，物理图像直观；
+    \item 无需联立复杂方程组，大幅降低运算难度，因此质心系是分析碰撞问题的最优参考系。
+\end{itemize}
+
+\subsubsection{非对心碰撞（斜碰）}
+一维正碰的规律可推广至二维非对心碰撞，核心原则：系统总动量矢量守恒，动能是否守恒由碰撞类型决定。
+
+分析方法：将各物体速度分解至两物体连心线方向与垂直连心线的切线方向。
+- 连心线方向：遵循一维碰撞规律；
+- 切线方向：若无切向作用力，分速度保持不变。
+
+\begin{center}
+\begin{tikzpicture}[>={Stealth},scale=1.2]
+% 绘制两个小球
+\draw[fill] (-2,0) circle (0.2) node[left] {$m_1$};
+\draw[fill] (2,0) circle (0.2) node[right] {$m_2$};
+% 入射速度矢量
+\draw[->,thick] (-3.5,1) -- (-2.2,0.2) node[above left] {$\vec{v}_1$};
+% 连心线（虚线）
+\draw[dashed] (-2,0) -- (2,0) node[midway,below] {连心线};
+% 出射速度矢量
+\draw[->,thick] (-1.8,0.2) -- (-0.5,1.2) node[above] {$\vec{v}_1'$};
+\draw[->,thick] (2.2,-0.2) -- (3.5,-1.2) node[below] {$\vec{v}_2'$};
+\end{tikzpicture}
+\end{center}
+
+\textbf{例题}：质量 \(m_1=2\ \mathrm{kg}\) 的小球以 \(v_1=4\ \mathrm{m/s}\) 运动，与静止的质量 \(m_2=1\ \mathrm{kg}\) 小球发生二维完全弹性斜碰，碰撞后 \(m_1\) 沿与原运动方向成 \(30^\circ\) 角运动，求两球碰撞后的速度大小。
+
+\textbf{解}：
+建立平面直角坐标系，取 \(m_1\) 入射方向为 \(x\) 轴正方向，垂直方向为 \(y\) 轴。
+1. 动量守恒分量式：
+\[
+\begin{cases}
+m_1 v_1 = m_1 v_1' \cos30^\circ + m_2 v_2' \cos\theta \\
+0 = m_1 v_1' \sin30^\circ - m_2 v_2' \sin\theta
+\end{cases}
+\]
+2. 动能守恒（完全弹性碰撞）：
+\[
+\frac{1}{2}m_1 v_1^2 = \frac{1}{2}m_1 {v_1'}^2 + \frac{1}{2}m_2 {v_2'}^2
+\]
+联立三组方程，代入数值即可解出 \(v_1'\) 与 \(v_2'\)。
+
+\subsubsection{常见误区}
+\begin{itemize}
+    \item 盲目认为所有碰撞过程动能均守恒，仅完全弹性碰撞动能无损失；
+    \item 分析二维非对心斜碰时，未对速度做正交分解，直接套用一维碰撞公式导致计算错误；
+    \item 混淆实验室系与质心系，忽略质心平动动能不可损耗的特点。
+\end{itemize}
+\end{document}
