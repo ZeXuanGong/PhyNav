@@ -1,0 +1,294 @@
+\documentclass[UTF-8]{ctexart}
+\usepackage{tcolorbox}
+\usepackage{amsmath, amssymb}
+\tcbuselibrary{skins,breakable}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%
+\section{保守力与势能}
+\textit{本节理论性比较强，许多内容与数分下册重合，大家可以结合数学教材一并复习。本节中绿色文本框内的内容为物理，蓝色文本框内的内容为数学，大家可以比照着看。如果实在看不懂推理过程，可以对物理部分记忆。}
+\subsection{保守力}
+\begin{tcolorbox}[colback=white!5!white,colframe=green!50!black,title=保守力的定义]
+    \textbf{定义}：如果力对物体所做的\textbf{功与路径无关}，只与物体的起点和终点位置有关，则该力称为\textbf{保守力}。
+
+\end{tcolorbox}
+这个定义很难不让人联想到数学中的内容。在数学中，我们已经学习过了许多关于第二类曲线积分和第二类曲面积分的性质，比如下面这个很有意思的性质。不知道大家还是否记得如何证明它们的等价性。
+\begin{tcolorbox}[colback=white!5!white, colframe=blue!75!black, title=曲线积分与路径无关的等价条件]
+    \textbf{定理}：设 \(\mathbf{F} = P(x,y,z)\,\mathbf{i} + Q(x,y,z)\,\mathbf{j} + R(x,y,z)\,\mathbf{k}\) 是定义在单连通区域 \(\Omega \subseteq \mathbb{R}^3\) 上的连续向量场。则以下四个条件等价：
+    \begin{enumerate}
+        \item 曲线积分 \(\int_{\Gamma} \mathbf{F}\cdot d\mathbf{r}\) 只与起点和终点有关，与路径 \(\Gamma\) 无关。
+        \item 对任意闭合曲线 \(C \subset \Omega\)，有 \(\oint_{C} \mathbf{F}\cdot d\mathbf{r} = 0\)。
+        \item 存在一个标量函数 \(V\)，使得 \(\mathbf{F} = \nabla V\)。
+        \item \(\nabla \times \mathbf{F} = \mathbf{0}\)，具体可写为
+              \[
+                  \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} = 0,\quad
+                  \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} = 0,\quad
+                  \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 0.
+              \]
+    \end{enumerate}
+\end{tcolorbox}
+
+上面数学定理的证明请参见数学分析教材。
+当然，我们可以仿照数学定理给出保守力的等价定义。
+
+\begin{tcolorbox}[colback=white!5!white, colframe=green!50!black, title=保守力的等价定义]
+    设力场 \(\mathbf{F}=(F_x,F_y,F_z)\) 连续可微且定义在单连通区域上，则以下等价：
+    \begin{enumerate}
+        \item 做功与路径无关，即$\mathbf{F}$是保守力；
+        \item 对任意闭路 \(C\) 有 \(\oint_C \mathbf{F}\cdot d\mathbf{r}=0\)，即$\mathbf{F}$沿闭合路径做功一周净功为0；
+        \item 存在势函数 \(V\) 使 \(\mathbf{F}=-\nabla V\)；
+        \item \(\nabla\times\mathbf{F}=0\)，即$\mathbf{F}$是无旋场，可简便记忆行列式形式
+              \[\nabla\times\mathbf{F} =
+                  \begin{vmatrix}
+                      \mathbf{i}                  & \mathbf{j}                  & \mathbf{k}                  \\[2pt]
+                      \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\[2pt]
+                      F_x                         & F_y                         & F_z
+                  \end{vmatrix} = \mathbf{0}.
+              \]
+    \end{enumerate}
+\end{tcolorbox}
+
+这个定理的证明完全可以利用上面数学上的定理。
+
+\noindent\textbf{注：}行列式可以很容易地表示两个矢量叉乘，将基矢依次置于第一行，第一个矢量和第二个矢量的分量依次置于二三行，行列式就是叉乘的结果，即
+
+\[
+    \mathbf{A} \times \mathbf{B} =
+    \begin{vmatrix}
+        \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+        A_x        & A_y        & A_z        \\
+        B_x        & B_y        & B_z
+    \end{vmatrix}
+    = (A_y B_z - A_z B_y)\,\mathbf{i} + (A_z B_x - A_x B_z)\,\mathbf{j} + (A_x B_y - A_y B_x)\,\mathbf{k}
+\]
+
+考虑到大家的数学可能没学会，我们这里给出不是很严格的证明，方便大家理解这四者的关系。
+
+\noindent\textbf{证明：}一些公式和技巧在电磁场、流场等内容十分重要，我们尝试结合证明过程给出一些
+
+\noindent（1）先证明1和2等价。这涉及到积分路径的构造，这种技巧在电磁学中十分常见。
+
+我们知道对于任意路径$\Gamma$，沿着路径做的功$ W(\Gamma) = \int_{\Gamma}  \mathbf{F}\cdot d\mathbf{r} $只与起点和终点有关，那么对于我们所选取的任意闭合路径C，我们可以将其拆成$C_1$和$C_2$两部分，即$C = C_1 +C_2$，而$C_2$的反方向$-C_2$是一段与$C_1$同起点和终点的不同路径，因此
+\[
+    \oint_C \mathbf{F}\cdot d\mathbf{r}=( \int_{C_1} + \int_{C_2} )\mathbf{F}\cdot d\mathbf{r} = ( \int_{C_1} - \int_{- C_2} )\mathbf{F}\cdot d\mathbf{r} = 0
+\]
+同样，如果我们知道了2，就可以将由点A到点B待比较功大小的两条路径$\Gamma_1$和$\Gamma_2$组成闭合回路$C = \Gamma_1 - \Gamma_2$，便可以证明这两条路径上功相等。
+
+\noindent（2）2和4的等价性是显然的。因为Stokes公式
+\[
+    \oint_{\partial \Sigma} \mathbf{F} \cdot d\mathbf{r}
+    = \iint_{\Sigma} (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS
+\]
+对任意闭合路径左侧积分等于0可以给出$\nabla \times \mathbf{F} = 0$，反之亦然。这一公式在电磁场中依旧重要。
+
+\noindent（3）3和4之间的等价性依旧显然。利用恒等式
+\[
+    \nabla \times \nabla V = 0
+\]
+如果矢量满足3，则自动满足4；如果矢量满足4，则它一定是某些标量的梯度（或负梯度），且该标量的选取不唯一，可以相差一个常数。因此，我们通过保守力定义这个函数V时，\textbf{需要规定V的零点}。类似的技巧在电磁场中依旧十分常见。在后面我们将会看到这个V的物理含义。
+\hfill$\square$
+
+相信大家已经被数学绕晕了。如果你此时大脑依旧清晰，说明你具备了一定学习理论物理的潜质（\textit{那么欢迎来}19\textit{系}doge）；如果你看不懂，完全不必担心。我们改造一下上面的定理，让它简单一些，作为本节的小节。
+\begin{tcolorbox}[colback=white!5!white, colframe=red!75!black, title=保守力小结]
+    如果 \(\mathbf{F}\) 做功与路径无关，则定义$\mathbf{F}$是保守力。其具有如下三条性质：
+    \begin{enumerate}
+        \item 保守力沿闭合路径做功一周净功为0；
+        \item 存在势函数 \(V\) 使 \(\mathbf{F}=-\nabla V\)；
+        \item 保守力场是无旋场
+    \end{enumerate}
+    对于某一个力，任意证明其一则可表明其是保守力。
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{保守力场的势能}
+我们前面讲到，保守力沿某个路径做的功仅与所选取的始末点有关。假如我们固定终点O，而起点是空间中的任意一点Q，那么我们就构建了一个关于空间的函数，这个函数的直接含义是空间中的某一点到O力做的功，即
+\[
+    W(\textbf{r}) = \int_{Q(\textbf{r})}^{O}  \mathbf{F}\cdot d\mathbf{r} = -  \int_{O}^{Q(\textbf{r})}  \mathbf{F}\cdot d\mathbf{r}
+\]
+这是一个变限积分。
+如果发生小变动$\Delta x$使得终点移动到Q‘，QQ'是平行于x轴、长为$\Delta x$的线段，用$F_x (x,y,z)$表示$F$的$x$分量，
+\[
+    \begin{aligned}
+        W(x+\Delta x,y,z) - W(x,y,z) & = -  \int_{(x,y,z)}^{(x+\Delta x,y,z)}  \mathbf{F}\cdot d\mathbf{r} \\&= -  F_x (x+\theta \Delta x,y,z) \Delta x
+    \end{aligned}
+\]
+应用中值定理有
+\[
+    \frac{\partial W}{\partial x} = - F_x
+\]
+同理可得其余两个方向的偏导数，最终得到：
+\[
+    \mathbf{F}=-\nabla W
+\]
+这表明，我们定义的此函数W恰好可以作为我们上节中要找的函数V，且W加减任意常数也可以是我们要找的V。
+\begin{tcolorbox}[colback=white!5!white,colframe=green!50!black,title=保守力场势能的定义]
+    \textbf{定义}：在保守力场中，定义点$Q(\textbf{r})$处的势能为
+    \[
+        E_p(\textbf{r}) = \int_{Q(\textbf{r})}^{O}  \mathbf{F}\cdot d\mathbf{r}
+    \]
+    其中O点为势能零点的位置。
+\end{tcolorbox}
+
+我们前面反复提到，势能函数V增减任意常数都能符合保守力应当满足的性质，因为无论我们增加一个多大的常数，其梯度依旧不会改变，这将不会改变保守力的大小和方向。事实上，势能零点的选取只会改变势能的绝对大小，不会改变相对大小关系，所以这不会改变任何力学上的结构。因此势能函数可以加上任意有限常数，这个常数不会改变势能差，也不会改变由 $\mathbf F=-\nabla V$ 得到的力。只要选取的势能零点不是奇异点，那么得到的力学规律都是正确的。
+
+我们可以给出如下性质：
+\begin{tcolorbox}[colback=white!5!white,colframe=green!50!black,title=保守力场中的势能差]
+    \textbf{性质}：在保守力场中，两点的势能差与所选取的势能零点无关。
+\end{tcolorbox}
+
+\noindent \textbf{证明：}我们基于势能零点O计算A和B的势能差
+\[
+    E_p(A) - E_p(B) = \int_{A}^{O}  \mathbf{F}\cdot d\mathbf{r}  - \int_{B}^{O}  \mathbf{F}\cdot d\mathbf{r} = \int_{A}^{B}  \mathbf{F}\cdot d\mathbf{r}
+\]
+根据保守力的定义，我们得到最右侧的积分只依赖于起点和终点，所以势能差不依赖于势能零点O的选取方式。\hfill$\square$
+\begin{tcolorbox}[colback=white!5!white, colframe=red!75!black, title=保守场势能小结]
+    \begin{enumerate}
+        \item 点$Q$处的势能为$
+                  E_p(\textbf{r}) = \int_{Q(\textbf{r})}^{O}  \mathbf{F}\cdot d\mathbf{r}
+              $（\textbf{请务必注意积分的上下限顺序}，避免多出一个负号），
+              与选取的势能零点O有关；
+        \item 两点间的势能差与势能零点O无关。
+    \end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{保守力的实例}
+我们熟知的许多力都是保守力。
+\begin{tcolorbox}[colback=white!5!white,colframe=green!50!black,title=重力]
+    证明重力是保守力。并给出重力势能的形式。
+\end{tcolorbox}
+\noindent \textbf{证明：}设三维坐标系的z轴竖直向上，坐标原点O位于地面上，重力$\mathbf{F} = -mg \mathbf{k}$。
+
+\textbf{方法一：}计算重力的旋度：
+\[
+    \begin{aligned}
+        \nabla \times \mathbf{F} & =
+        \begin{vmatrix}
+            \mathbf{i}                  & \mathbf{j}                  & \mathbf{k}                  \\
+            \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+            0                           & 0                           & -mg
+        \end{vmatrix}
+        \\&= \mathbf{i}\left(\frac{\partial (-mg)}{\partial y} - \frac{\partial 0}{\partial z}\right) - \mathbf{j}\left(\frac{\partial (-mg)}{\partial x} - \frac{\partial 0}{\partial z}\right) + \mathbf{k}\left(\frac{\partial 0}{\partial x} - \frac{\partial 0}{\partial y}\right)\\& = \mathbf{0}.
+    \end{aligned}
+\]
+所以重力场是保守场。
+为计算重力势能，我们选取水平地面上某点O为势能零点，对空间中的点$A(x,y,z)$，其在地面上的投影为$B(x,y,0)$，我们拆分A到O的积分路径为A到B和B到O。即：
+\[
+    \begin {aligned}
+    E_p(A) &=  \int_{A}^{O}  \mathbf{F}\cdot d\mathbf{r} = \int_{A}^{B}  \mathbf{F}\cdot d\mathbf{r} + \int_{B}^{O}  \mathbf{F}\cdot d\mathbf{r}
+    \\&= \int_{z}^{0} -mg dz + 0 = mgz
+    \end{aligned}
+\]
+因此，如果要求地面为势能零点，高度为$z$处的重力势能为$mgz$。\hfill$\square$
+
+\textbf{方法二：}我们设函数$V = mgz +C$，其中C为一个与空间坐标无关的常数。
+\[
+    -\nabla V = -mg \mathbf{k} = \mathbf{F}
+\]
+即存在势函数V，使得$  \mathbf{F} = -\nabla V $，因此重力是保守力。C和我们规定的重力势能零点有关。
+
+如果规定地面（$z=0$）为重力势能零点，则$C = 0$，重力势能$V = mgz$。\hfill$\square$
+\begin{tcolorbox}[colback=white!5!white,colframe=green!50!black,title=弹簧弹力]
+    证明弹簧弹力是保守力。并给出弹性势能的形式。
+\end{tcolorbox}
+\noindent \textbf{证明：}设一维坐标系的x轴正方向为弹簧伸长方向，原点为平衡位置。弹簧弹力$\mathbf{F} = -kx \mathbf{i}$，我们用不同于上面两种方法的方法证明。
+设A点（$x = x_a$）和B点（$x = x_b$），我们证明弹力做功与路径无关。
+
+根据定积分的区间可加性，无论所取路径如何，弹力做功均为
+\[
+    W = \int_{A}^{B} F\,dx = \int_{x_a}^{x_b} (-kx)\,dx = \frac{1}{2}k x_a^2 - \frac{1}{2}k x_b^2.
+\]
+结果仅取决于始末位置，故弹力是保守力。
+
+设平衡位置为弹性势能零点O，则Q（$x = x_Q$）处的弹性势能只需要把A换成Q，B换成O，那么
+\[
+    E_p(Q ) =  \frac{1}{2}k x_Q^2
+\]
+\hfill$\square$
+
+\begin{tcolorbox}[colback=white!5!white, colframe=green!50!black, title=摩擦力]
+    证明摩擦力不是保守力。
+\end{tcolorbox}
+\noindent \textbf{证明：}采用不同于上面三种方法的第四种方法。设一物体在粗糙水平面上受滑动摩擦力 \( \mathbf{f} = -\mu mg \,\hat{\mathbf{v}} \)，其中 \(\hat{\mathbf{v}}\) 为速度方向。
+
+考虑一闭合路径：物体从原点 \(O\) 沿 \(x\) 轴正方向匀速移动至 \(A(L,0)\)，再沿原路返回至 \(O\)。总功为：
+\[
+    W_{\text{总}} = -2\mu mg L \neq 0.
+\]
+
+由于存在闭合路径上做功不为零，摩擦力不满足保守力定义，故摩擦力不是保守力。\hfill$\square$
+
+同理，空气阻力也不是保守力。
+
+上面给出的四种证明或否定保守力的方法是等价的，读者可以尝试用不同的方法证明。
+
+接下来我们讨论一类十分重要的力。
+\begin{tcolorbox}[colback=white!5!white, colframe=green!50!black, title=有心力]
+    证明有心力是保守力。
+\end{tcolorbox}
+\noindent \textbf{证明：}设有心力 \(\mathbf{F}(\mathbf{r}) = F(r)\,\hat{\mathbf{r}}\)，其中 \(r = |\mathbf{r}|\)，\(\hat{\mathbf{r}} = \mathbf{r}/r\)。
+
+定义函数
+\[
+    V(r) = -\int_{r_0}^{r} F(\rho)\,d\rho,
+\]
+则 \(V\) 只依赖于径向坐标 \(r\)，与角度 \(\theta,\phi\) 无关。下面证明此函数恰为$\mathbf{F}(\mathbf{r}) $的负梯度。
+
+在球坐标系中，标量函数 \(V(r)\) 的梯度为
+\[
+    \nabla V = \frac{\partial V}{\partial r}\,\hat{\mathbf{r}} + \frac{1}{r}\frac{\partial V}{\partial \theta}\,\hat{\boldsymbol{\theta}} + \frac{1}{r\sin\theta}\frac{\partial V}{\partial \phi}\,\hat{\boldsymbol{\phi}}.
+\]
+由于 \(\partial V/\partial\theta = 0\) 和 \(\partial V/\partial\phi = 0\)，故
+\[
+    \nabla V = \frac{dV}{dr}\,\hat{\mathbf{r}}.
+\]
+而 \(\frac{dV}{dr} = -F(r)\)，因此
+\[
+    \mathbf{F} = F(r)\,\hat{\mathbf{r}} = -\frac{dV}{dr}\,\hat{\mathbf{r}} = -\nabla V.
+\]
+存在势函数 \(V\)，故有心力为保守力。\hfill$\square$
+\begin{tcolorbox}[colback=white!5!white,colframe=green!50!black,title=万有引力]
+    证明万有引力是保守力。并给出引力势能的形式。
+\end{tcolorbox}
+\noindent \textbf{证明：}万有引力是一种有心力，所以是保守力。取无穷远为势能零点：
+\[
+    V(r) = \int_{r}^{\infty} \mathbf{F}\cdot d\mathbf{r} = -\int_{\infty}^{r} \left(-G\frac{Mm}{r'^2}\right) dr' = \int_{\infty}^{r} G\frac{Mm}{r'^2} dr' = -G\frac{Mm}{r}.
+\]
+因此万有引力是保守力，且引力势能为 \(V(r) = -G\frac{Mm}{r}\)。\hfill$\square$
+\begin{tcolorbox}[colback=white!5!white, colframe=red!75!black, title=常见保守力小结]
+    常见的保守力有
+    \begin{enumerate}
+        \item 重力，重力势能为$E_p = mgz$（地面为零点）；
+        \item 弹力，弹性势能为$E_p =  \frac{1}{2}k x^2 $（平衡位置为零点）；
+        \item 万有引力，引力势能为$-G\frac{Mm}{r}$（无穷远为零点）。
+    \end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{平衡及其稳定性}
+力是一个矢量，能量则是一个标量。一般而言，标量的计算和分析较矢量要简单不少。接下来，我们用能量的特征来分析平衡问题。
+
+在静力学中，一个物体受力平衡需要其受到的合外力为0。如果其受到的外力均为保守力，则有：
+\[
+    \mathbf{F}=-\nabla V = 0
+\]
+也就是要求V在平衡位置处为驻点。
+我们给出如下定理。
+\begin{tcolorbox}[colback=white!5!white,colframe=green!50!black,title=平衡条件及其稳定性]
+    质点平衡条件为 \(\nabla V = \mathbf{0}\)。当能量取极小值时，平衡是稳定的。一维情形下，平衡条件简化为$V'(x) = 0$。
+\end{tcolorbox}
+关于平衡的稳定性，我们可以做如下考虑：
+
+当能量取极小值时，无论物体如何移动，其能量总会升高，所以外力总是朝着使得物体返回平衡位置的方向，是稳定的；
+
+当能量取极大值时，无论物体如何移动，能量总会降低，外力总是朝着使得物体离开平衡位置的方向，是不稳定的。
+\begin{tcolorbox}[colback=white!5!white,colframe=green!50!black,title=例题]
+    已知势场$V =  \frac{1}{2}k x^2$（$k \neq 0$），找出其平衡位置，并判断平衡位置的稳定性。
+\end{tcolorbox}
+\noindent \textbf{解：}
+平衡条件：$\dfrac{dV}{dx} = kx = 0$，解得平衡位置为 $x = 0$。
+
+二阶导数 $\dfrac{d^2V}{dx^2} = k$。
+若$k > 0$，故势能在 $x=0$ 处取极小值，平衡是稳定的；
+若$k < 0$，故势能在 $x=0$ 处取极大值，平衡是不稳定的。
+我们这里只讨论了一维的问题，对于三维势场平衡的稳定性，可以利用数学分析中的多元函数极值判别方法判定，我们这里不做讨论。
+\begin{tcolorbox}[colback=white!5!white, colframe=red!75!black, title=平衡及其稳定性小结]
+    满足$\dfrac{dV}{dx} =0$的位置为平衡位置，$\dfrac{d^2V}{dx^2} >0$ 时为稳定平衡，$\dfrac{d^2V}{dx^2}<0 $ 时为不稳定平衡。
+\end{tcolorbox}
+\end{document}
