@@ -1,0 +1,134 @@
+\section{火箭喷气与变质量问题}
+
+火箭喷气问题属于变质量系统动力学问题。普通形式
+\[
+    \sum \boldsymbol F=m\boldsymbol a
+\]
+默认研究对象质量不变；而火箭在喷气过程中不断抛出燃料，主体质量随时间减小。如果仍把火箭看作恒质量质点，便会漏掉喷出质量携带的动量流。
+
+\subsection{变质量系统的动量分析}
+
+设某时刻火箭主体质量为 $m$，相对地面惯性系的速度为 $\boldsymbol v$。在极短时间 $\mathrm dt$ 内，火箭喷出一小部分燃料，主体质量变为
+\[
+    m+\mathrm dm ,
+\]
+其中喷气时火箭主体质量减少，所以
+\[
+    \mathrm dm<0.
+\]
+喷出燃料相对火箭主体的速度记为 $\boldsymbol u$。注意，$\boldsymbol u$ 是喷出物相对火箭的速度，不是喷出物相对地面的速度。
+
+取“火箭主体 + 即将喷出的燃料”为研究系统，由质点组动量变化定理可知
+\[
+    \boldsymbol I_{\mathrm{ext}}=\Delta \boldsymbol P .
+\]
+在 $\mathrm dt$ 很小时，外力冲量为 $\boldsymbol F_{\mathrm{ext}}\mathrm dt$。保留一阶小量，可得变质量运动方程
+\[
+    \boxed{
+    m\frac{\mathrm d\boldsymbol v}{\mathrm dt}
+    =
+    \boldsymbol F_{\mathrm{ext}}
+    +
+    \boldsymbol u\frac{\mathrm dm}{\mathrm dt}
+    } .
+\]
+式中 $\boldsymbol F_{\mathrm{ext}}$ 为火箭主体所受外力，如重力、空气阻力等。若喷气方向与火箭前进方向相反，则 $\boldsymbol u$ 指向火箭后方；又因为 $\mathrm dm/\mathrm dt<0$，喷气项可使火箭获得向前的加速度。
+
+\begin{note}
+变质量运动方程中的 $m$ 指火箭主体当前质量，$\mathrm dm$ 指火箭主体质量变化量。喷气时 $\mathrm dm<0$，这是最容易出错的符号约定。
+\end{note}
+
+\subsection{无外力一维火箭公式}
+
+若火箭在远离天体引力和空气阻力的空间中沿直线运动，取火箭前进方向为正方向。设喷气相对火箭向后，喷气速度大小为 $v_r$，则
+\[
+    \boldsymbol u=-v_r\boldsymbol e_x .
+\]
+无外力时，变质量运动方程化为
+\[
+    m\frac{\mathrm dv}{\mathrm dt}
+    =
+    -v_r\frac{\mathrm dm}{\mathrm dt}.
+\]
+写成微分形式：
+\[
+    \mathrm dv=-v_r\frac{\mathrm dm}{m}.
+\]
+若 $v_r$ 近似为常量，从初始质量 $m_0$、初速度 $v_0$ 积分到当前质量 $m$、速度 $v$，有
+\[
+    \int_{v_0}^{v}\mathrm dv
+    =
+    -v_r\int_{m_0}^{m}\frac{\mathrm dm}{m}.
+\]
+因此
+\[
+    v-v_0
+    =
+    -v_r\ln\frac{m}{m_0}
+    =
+    v_r\ln\frac{m_0}{m}.
+\]
+理想火箭公式为
+\[
+    \boxed{
+    v=v_0+v_r\ln\frac{m_0}{m}
+    } .
+\]
+它说明火箭速度增量与喷气速度 $v_r$ 成正比，并与质量比 $m_0/m$ 的对数成正比。
+
+\subsection{速度参考系的辨析}
+
+火箭问题中至少涉及两类速度：
+
+\begin{enumerate}
+    \item $\boldsymbol v$：火箭主体相对地面惯性系的速度；
+    \item $\boldsymbol u$：喷出物相对火箭主体的速度；
+    \item 喷出物相对地面惯性系的速度约为 $\boldsymbol v+\boldsymbol u$。
+\end{enumerate}
+
+列动量方程时，所有动量都必须在同一个惯性系中表达，不能把相对火箭的喷气速度直接当作喷出物对地速度。
+
+\subsection{例题：理想火箭速度}
+
+一枚火箭在无外力空间中沿直线运动。初始质量为 $m_0$，初速度为 $v_0$，喷气相对火箭向后，喷气速度大小恒为 $v_r$。当火箭质量减小到 $m$ 时，求火箭速度。
+
+\textbf{解析：} 取火箭前进方向为正方向。无外力时，
+\[
+    m\frac{\mathrm dv}{\mathrm dt}
+    =
+    -v_r\frac{\mathrm dm}{\mathrm dt}.
+\]
+因为喷气时 $\mathrm dm<0$，所以右端为正，火箭加速。分离变量得
+\[
+    \mathrm dv=-v_r\frac{\mathrm dm}{m}.
+\]
+积分：
+\[
+    v-v_0=-v_r\ln\frac{m}{m_0}.
+\]
+于是
+\[
+    \boxed{
+    v=v_0+v_r\ln\frac{m_0}{m}
+    } .
+\]
+若 $m$ 越小、$m_0/m$ 越大，火箭速度增量越大；但由于是对数关系，单纯增大质量比的收益会逐渐降低。
+
+\subsection{常用公式}
+
+\[
+    \boxed{
+    m\frac{\mathrm d\boldsymbol v}{\mathrm dt}
+    =
+    \boldsymbol F_{\mathrm{ext}}
+    +
+    \boldsymbol u\frac{\mathrm dm}{\mathrm dt}
+    }
+\]
+\[
+    \boxed{
+    v=v_0+v_r\ln\frac{m_0}{m}
+    }
+    \qquad
+    \text{无外力、一维运动、喷气速度恒定时成立。}
+\]
