@@ -17,7 +17,7 @@
 % 智能引用
 \usepackage{tcolorbox}
 % 美化定理框
-\tcbuselibrary{skins,breakable} 
+\tcbuselibrary{skins, theorems, breakable} 
 % 加载额外库以支持分页等更多功能
 \usepackage{marginnote}                    
 % 旁注系统
@@ -29,7 +29,7 @@
 \usepackage{multicol}                   
 % 复杂表格，合并单元格
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta}                              
+\usetikzlibrary{calc, arrows.meta, positioning}                              
 % 矢量绘图
 \usepackage{enumitem}                      
 % 列表控制
@@ -150,6 +150,8 @@ boxrule=1pt, arc=3mm, fonttitle=\bfseries}{th}
 \include{sections/2.5}
 \include{sections/2.6}
 \include{sections/2.7}
+
+\include{sections/3.1-3.4}
 
 % \include{sections/3.1}
 % \include{sections/3.2}
